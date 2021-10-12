@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<color name="colorBaseBackground">#ffd633</color>
+<color name="Black">#000000</color>
+
+<color name="colorPrimary">#FC8458</color>
+<color name="colorPrimaryDark">#FF5100</color>
+<color name="colorAccent">#666666</color>
+
+<color name="background_black">#202126</color>
+<color name="background_black_34">#59202126</color>
+<color name="logo_orange">#FF8659</color>
+
+<color name="border_color">#D9D9D9</color>
+<color name="status_bar_color">#FF8659</color>
+<color name="status_bar_color_after_login">#FF5100</color>
+<color name="login_back_color">#FAFAFA</color>
+<color name="hint_color">#666666</color>
+<color name="footer_version_color">#BFBFBF</color>
+<color name="background_orange">#FF8659</color>
+<color name="pos_app_orange">#FF5100</color>
+<color name="pos_app_orange_light">#FFA889</color>
+<color name="dashboard_user_name">#131313</color>
+<color name="white">#FFFFFF</color>
+<color name="dashboard_center_color">#F5F5F5</color>
+<color name="dashboard_card_data_color">#4D4D4D</color>
+<color name="bottom_nagigation_bar">#FFCBB7</color>
+<color name="search_bar_hint_bar">#BFBFBF</color>
+<color name="bright_search">#FF5100</color>
+<color name="matte_black">#666666</color>
+<color name="light_orange">#ffc7b3</color>
+
+<color name="image_background">#C4C4C4</color>
+<color name="more_light_orange">#ffece6</color>
+<color name="InternetBankingText">#FF8659</color>
+<color name="stock_light_orange">#59FF8659</color>
+<color name="list_title">#F6EAE5</color>
+<color name="basket_background">#F5F5F5</color>
+<color name="edit">#4A89DC</color>
+<color name="btnTextColor">#9ea0ae</color>
+
+
+<!-- todo colors according to theme -->
+<color name="primaryColor500">#FF5100</color>
+<color name="pColor300">#FF8659</color>
+<color name="lColor700">#F5F5F5</color>
+<color name="lColor500">#DEDEDE</color>
+<color name="darkColor900">#000000</color>
+<color name="dColor800">#262626</color>
+<color name="lightColor900">#FFFFFF</color>
+<color name="dColor700">#000000</color>
+<color name="dColor500">#7B7B7B</color>
+<color name="errorColor600">#FF002F</color>
+<color name="dColor400">#B4ABA1</color>
+<color name="dColor600">#555555</color>
+<color name="infoColor500">#00AEFF</color>
+<color name="lColor400">#C2C2C2</color>
+<color name="pColor50">#FCE8E5</color>
+<color name="dColor200">#D9D9D9</color>
+<color name="suColor800">#00BE00</color>
+<color name="lColor200">#818181</color>
+<color name="lColor300">#979797</color>
+<color name="lColor800">#FAFAFA</color>
+
+<color name="LinearGradientStart">#E64300</color>
+<color name="LinearGradientEnd">#FF8659</color>
+<color name="innerBorder">#434343</color>
+<color name="suColor700">#00D300</color>
+<color name="dashboard_text_color">#807F83</color>
+<color name="sucessGreen">#31B268</color>
+<!--<color name="product_list">#B4ABA1</color>-->
+</resources>

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">E-Fordo</string>
+    <string name="sign_up">New User? Sign up.</string>
+    <string name="next">Next</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="description">By using this app you can print on any brand of Bluetooth printers, for example Bixolon, Woosim, Sewoo, Rongta, Baby, Delta, etc.
+        \n\nChoose your printer brand:
+    </string>
+    <string name="connect_fail">Connection Fail</string>
+    <string name="empty_stock">No Product Found</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="TestData">
+        <item>Parrot Green Shree</item>
+        <item>Parrot Green Shree</item>
+        <item>Parrot Green Shree</item>
+        <item>Parrot Green Shree</item>
+        <item>Parrot Green Shree</item>
+        <item>Parrot Green Shree</item>
+        <item>Parrot Green Shree</item>
+        <item>Parrot Green Shree</item>
+    </string-array>
+    <string-array name="TestDataDetails">
+        <item>SKU 45514455</item>
+        <item>SKU 45514456</item>
+        <item>SKU 45514457</item>
+        <item>SKU 45514458</item>
+        <item>SKU 45514459</item>
+        <item>SKU 45514460</item>
+        <item>SKU 45514461</item>
+        <item>SKU 45514462</item>
+    </string-array>
+
+
+    <string-array name="crm_type_array">
+        <item>MARC</item>
+        <item>Club TAAGA</item>
+    </string-array>
+    <string name="title_activity_chart">ChartActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+</resources>

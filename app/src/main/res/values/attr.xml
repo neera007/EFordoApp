@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="splash_text_color" format="color"/>
+        <attr name="logo_color" format="color"/>
+        <attr name="button_bg_color" format="color"/>
+        <attr name="button_text_color" format="color"/>
+        <attr name="link_color" format="color"/>
+        <attr name="title_color" format="color"/>
+        <attr name="sub_title_color" format="color"/>
+        <attr name="icon_color" format="color"/>
+        <attr name="info_bg_color" format="color"/>
+        <attr name="info_text1_color" format="color"/>
+        <attr name="info_text2_color" format="color"/>
+        <attr name="info_text3_color" format="color"/>
+        <attr name="dashboard_bottom_toolbar_bg_color" format="color"/>
+        <attr name="dashboard_main_icon_bg_color" format="color"/>
+        <attr name="dashboard_main_icon_text_color" format="color"/>
+        <attr name="dashboard_secondary_icon_text_color" format="color"/>
+        <attr name="button_back" format="color"/>
+        <attr name="search_box_backgroud" format="color"/>
+        <attr name="stock_info_background" format="color"/>
+        <attr name="top_toolbar" format="color"/>
+        <attr name="product_list" format="color"/>
+        <attr name="small_basket" format="color"/>
+        <attr name="btn_add_product" format="color"/>
+        <attr name="basketItem_qty" format="color"/>
+        <attr name="basketItem_txt" format="color"/>
+
+
+    </declare-styleable>
+</resources>
