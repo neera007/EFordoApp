@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBaseBackground"
+    android:orientation="vertical"
+    tools:context=".Activiy.SettingsActivity"
+    >
+
+    <!-- todo Start Product List part -->
+    <LinearLayout
+        android:id="@+id/OrderSuccessfullyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingTop="12dp">
+        <LinearLayout
+            android:id="@+id/layoutClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingRight="17dp"
+            android:paddingLeft="12dp">
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/ic_close"
+                android:backgroundTint="?attr/button_back"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/top_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/OrderSuccessfullyLayout"
+        android:background="@drawable/basket_data_shape"
+        android:backgroundTint="?attr/product_list"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+        <LinearLayout
+            android:id="@+id/layoutSettingCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="30dp">
+
+            <TextView
+                android:id="@+id/txtSettingCaption"
+                style="@style/FontBold"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:text="Set Settings"
+                android:textColor="?attr/info_text1_color"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/middle_data_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_container"
+        android:background="@color/lColor700">
+
+        <LinearLayout
+            android:id="@+id/layoutSetTheme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/logo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignTop="@+id/view"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/btnBasket"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/img_logo"
+                        android:layout_alignBottom="@+id/btnBasket"
+                        android:layout_width="86dp"
+                        android:layout_height="85dp"
+                        android:background="@drawable/ic_bmw_logo"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout_userid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvActiviyName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginRight="48dp"
+                app:hintEnabled="false"
+                app:layout_constraintTop_toBottomOf="@+id/tvActiviyName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_user_id"
+                    style="@style/FontRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/custom_input"
+                    android:bottomLeftRadius="10dp"
+                    android:bottomRightRadius="10dp"
+                    android:drawablePadding="8dp"
+                    android:hint="IP Address"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textAlignment="center"
+                    android:text="192.168.1.102"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/inputFont"
+                    android:textSize="14sp"
+                    android:topLeftRadius="10dp"
+                    android:topRightRadius="10dp"
+                    android:layout_gravity="center_horizontal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/textInputLayout_userid"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCheck"
+                    style="@style/FontBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/chkRememberMe"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="10dp"
+                    android:text="Check"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnSave"
+                    style="@style/FontBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/chkRememberMe"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="10dp"
+                    android:text="Save"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- start Footer version part -->
+        <RelativeLayout
+            android:id="@+id/last_button_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/tvFooterVersion"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:text="@string/copy_right"
+                android:textColor="@color/inputFont"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

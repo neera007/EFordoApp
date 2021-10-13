@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<color name="colorBaseBackground">#ffd633</color>
-<color name="Black">#000000</color>
+    <color name="colorBaseBackground">#ffd633</color>
+    <color name="black">#000000</color>
+    <color name="inputFont">#999999</color>
+    <color name="darkYellow">#e6b800</color>
+    <color name="lightYellow">#ffeb99</color>
+
+
 
 <color name="colorPrimary">#FC8458</color>
 <color name="colorPrimaryDark">#FF5100</color>

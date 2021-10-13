@@ -5,6 +5,7 @@
     <string name="password">Password</string>
     <string name="username">Username</string>
     <string name="login">Login</string>
+    <string name="copy_right">Copyright Proxima Soft</string>
     <string name="description">By using this app you can print on any brand of Bluetooth printers, for example Bixolon, Woosim, Sewoo, Rongta, Baby, Delta, etc.
         \n\nChoose your printer brand:
     </string>

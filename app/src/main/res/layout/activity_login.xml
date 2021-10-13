@@ -1,10 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activiy.LoginActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:background="@color/colorBaseBackground"
+      tools:context=".Activiy.LoginActivity"
+      tools:ignore="MissingDefaultResource">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/logo_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_demo_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp">
+        <ImageButton
+            android:id="@+id/img_logo"
+            android:layout_alignBottom="@+id/btnBasket"
+            android:layout_width="86dp"
+            android:layout_height="85dp"
+            android:background="@drawable/ic_bmw_logo"
+            />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/middle_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/logo_layout"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/shape_login_bg">
+
+        <TextView
+            android:id="@+id/tvActiviyName"
+            style="@style/FontBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="User Login"
+            android:textColor="?attr/info_text3_color"
+            android:textSize="20sp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_userid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvActiviyName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="48dp"
+            app:hintEnabled="false"
+            app:layout_constraintTop_toBottomOf="@+id/tvActiviyName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_user_id"
+                style="@style/FontRegular"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_input"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:drawablePadding="8dp"
+                android:hint="Enter your user ID"
+                android:inputType="text"
+                android:paddingLeft="16dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@color/black"
+                android:textColorHint="@color/inputFont"
+                android:textSize="14sp"
+                android:topLeftRadius="10dp"
+                android:topRightRadius="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_userid"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            app:hintEnabled="false"
+            app:passwordToggleDrawable="@drawable/ic_show_password_selector"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_password"
+                style="@style/FontRegular"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_input"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:drawablePadding="8dp"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@color/black"
+                android:textColorHint="@color/inputFont"
+                android:textSize="14sp"
+                android:topLeftRadius="10dp"
+                android:topRightRadius="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <CheckBox
+            android:id="@+id/chkRememberMe"
+            style="@style/FontRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInputLayout_user_password"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:text="Remember Me "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/FontBold"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/chkRememberMe"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            style="@style/FontBold"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/btnLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:background="@drawable/button_background"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="Settings"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!-- start Footer version part -->
+    <RelativeLayout
+        android:id="@+id/last_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/tvFooterVersion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:text="@string/copy_right"
+            android:textColor="@color/inputFont"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</RelativeLayout>
+

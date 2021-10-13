@@ -26,9 +26,9 @@ tools:context=".Activiy.SplashScreenActivity">
         <ImageButton
             android:id="@+id/img_logo"
             android:layout_alignBottom="@+id/btnBasket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/e_fordo_logogif"
+            android:layout_width="86dp"
+            android:layout_height="85dp"
+            android:background="@drawable/ic_bmw_logo"
            />
     </LinearLayout>
 </LinearLayout>
@@ -43,7 +43,7 @@ tools:context=".Activiy.SplashScreenActivity">
         android:layout_marginTop="22dp"
         android:gravity="center"
         android:text="Sales Requisition"
-        android:textColor="@color/Black"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
 
@@ -93,8 +93,8 @@ tools:context=".Activiy.SplashScreenActivity">
             android:layout_height="48dp"
             android:layout_gravity="bottom"
             android:gravity="center"
-            android:text="Copyright Proxima Soft"
-            android:textColor="@color/Black"
+            android:text="@string/copy_right"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </RelativeLayout>
 </RelativeLayout>

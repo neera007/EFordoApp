@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBaseBackground"
+    android:orientation="vertical"
+    tools:context=".Activiy.DashboardActivity">
+
+    <!-- androidx.appcompat.widget.Toolbar-->
+    <LinearLayout
+        android:id="@+id/toolbarNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp">
+
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="3dp"
+                android:background="@drawable/ic_bmw_logo"
+
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/img_logo"
+                    android:layout_alignBottom="@+id/btnBasket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_demo_logo"
+                    android:backgroundTint="?attr/logo_color" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_dashboard_user_name"
+                style="@style/FontBold"
+                android:paddingRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Logout"
+                android:textStyle="bold"
+                android:textColor="?attr/info_text1_color"
+                android:textSize="16sp"/>
+            <ImageButton
+                android:id="@+id/btnLogOut"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/ic_logout"
+             />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/last_login_info_layout"
+        android:background="@drawable/curved_layout_shape"
+        android:layout_below="@+id/toolbarNew"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curved_layout_shape"
+            android:backgroundTint="?attr/product_list"
+            android:orientation="horizontal"
+            android:paddingTop="2dp">
+
+            <TextView
+                android:id="@+id/txt_last_login_info_on"
+                style="@style/FontBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:paddingLeft="20dp"
+                android:text="Dashboard"
+                android:textColor="?attr/info_text2_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+            />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dashboard_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/last_login_info_layout"
+        android:layout_marginTop="-2dp"
+        android:background="@color/dashboard_center_color">
+
+        <LinearLayout
+            android:id="@+id/layoutRedeemDiscount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:paddingTop="15dp">
+
+            <!--todo Radio button section -->
+            end radio button -->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/firts_card_view"
+        android:layout_below="@+id/dashboard_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dashboard_center_color">
+
+    </RelativeLayout> <!-- End first card view-->
+
+    <RelativeLayout
+
+        android:layout_below="@+id/firts_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lColor700">
+
+        <RelativeLayout
+            android:id="@+id/center_container"
+            android:layout_above="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
+
+
+    <!-- todo ********start  bottom nev bar ***********-->
+        <RelativeLayout
+            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/dashboard_shape"
+            android:gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/view"
+            android:layout_alignParentLeft="true">
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutAudit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/layoutStock"
+            android:layout_alignParentEnd="true"
+            android:paddingLeft="40dp"
+            android:layout_alignParentRight="true">
+
+            <ImageButton
+                android:id="@+id/btnAudit"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/btnBasket"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="46dp"
+                android:layout_marginRight="46dp"
+                android:background="@drawable/ic_message_title"
+                android:backgroundTint="?attr/dashboard_secondary_icon_text_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnBasket"
+            android:layout_width="70dp"
+            android:layout_height="64dp"
+            android:layout_alignTop="@+id/view"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_cart_btn_shape"
+
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnSmallBasket"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/btnBasket"
+                android:background="@drawable/add_to_cart"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="30dp"
+            android:layout_alignBottom="@+id/btnBasket">
+            <ImageButton
+                android:id="@+id/btnStock"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_new"
+                android:layout_marginLeft="64dp"
+                android:backgroundTint="?attr/dashboard_secondary_icon_text_color"
+                />
+        </LinearLayout>
+
+        <!-- todo ********end  bottom nev bar ***********-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <TextView
+                android:id="@+id/tvStockforBtn"
+                style="@style/FontRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="Previous Req."
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/tvBasketforBtn"
+                style="@style/FontBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="Add To Cart"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tvAuditforBtn"
+                style="@style/FontRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-2dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="New Req."
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
