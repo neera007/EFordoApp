@@ -7,60 +7,24 @@ public class UserInfo {
     @SerializedName("UserID")
     @Expose
     private String userID;
-    @SerializedName("UserName")
+    @SerializedName("SoftUser")
     @Expose
-    private String userName;
-    @SerializedName("RoleID")
+    private String softUser;
+    @SerializedName("Activity")
     @Expose
-    private String roleID;
-    @SerializedName("RoleName")
+    private String activity;
+    @SerializedName("Priority")
     @Expose
-    private String roleName;
-    @SerializedName("ModuleId")
+    private String priority;
+    @SerializedName("LastUpdatedDate")
     @Expose
-    private String moduleId;
-    @SerializedName("Cashregister")
+    private String lastUpdatedDate;
+    @SerializedName("LastUpdatedBy")
     @Expose
-    private String cashregister;
-    @SerializedName("CashregisterID")
+    private String lastUpdatedBy;
+    @SerializedName("Validated")
     @Expose
-    private String cashregisterID;
-    @SerializedName("Theme")
-    @Expose
-    private String theme;
-    @SerializedName("UserPassword")
-    @Expose
-    private String userPassword;
-    @SerializedName("PrinterAddress")
-    @Expose
-    private String printerAddress;
-
-    @SerializedName("LastLoginDate")
-    @Expose
-    private String lastLoginDate;
-    @SerializedName("LastLoginTime")
-    @Expose
-    private String lastLoginTime;
-    @SerializedName("SalesPermission")
-    @Expose
-    private String salesPermission;
-
-    @SerializedName("AuditPermission")
-    @Expose
-    private String auditPermission;
-
-    @SerializedName("BkashWalletNumber")
-    @Expose
-    private String bkashWalletNumber;
-
-    public String getBkashWalletNumber() {
-        return bkashWalletNumber;
-    }
-
-    public void setBkashWalletNumber(String bkashWalletNumber) {
-        this.bkashWalletNumber = bkashWalletNumber;
-    }
-
+    private Boolean validated;
 
     public String getUserID() {
         return userID;
@@ -70,107 +34,51 @@ public class UserInfo {
         this.userID = userID;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getSoftUser() {
+        return softUser;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setSoftUser(String softUser) {
+        this.softUser = softUser;
     }
 
-    public String getRoleID() {
-        return roleID;
+    public String getActivity() {
+        return activity;
     }
 
-    public void setRoleID(String roleID) {
-        this.roleID = roleID;
+    public void setActivity(String activity) {
+        this.activity = activity;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getPriority() {
+        return priority;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setPriority(String priority) {
+        this.priority = priority;
     }
 
-    public String getModuleId() {
-        return moduleId;
+    public String getLastUpdatedDate() {
+        return lastUpdatedDate;
     }
 
-    public void setModuleId(String moduleId) {
-        this.moduleId = moduleId;
+    public void setLastUpdatedDate(String lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
     }
 
-    public String getCashregister() {
-        return cashregister;
+    public String getLastUpdatedBy() {
+        return lastUpdatedBy;
     }
 
-    public void setCashregister(String cashregister) {
-        this.cashregister = cashregister;
+    public void setLastUpdatedBy(String lastUpdatedBy) {
+        this.lastUpdatedBy = lastUpdatedBy;
     }
 
-    public String getCashregisterID() {
-        return cashregisterID;
+    public Boolean getValidated() {
+        return validated;
     }
 
-    public void setCashregisterID(String cashregisterID) {
-        this.cashregisterID = cashregisterID;
-    }
-
-    public String getTheme() {
-        return theme;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getPrinterAddress() {
-        return printerAddress;
-    }
-
-    public void setPrinterAddress(String printerAddress) {
-        this.printerAddress = printerAddress;
-    }
-
-    public String getLastLoginDate() {
-        return lastLoginDate;
-    }
-
-    public void setLastLoginDate(String lastLoginDate) {
-        this.lastLoginDate = lastLoginDate;
-    }
-
-    public String getLastLoginTime() {
-        return lastLoginTime;
-    }
-
-    public void setLastLoginTime(String lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
-    }
-
-    public String getSalesPermission() {
-        return salesPermission;
-    }
-
-    public void setSalesPermission(String salesPermission) {
-        this.salesPermission = salesPermission;
-    }
-
-    public String getAuditPermission() {
-        return auditPermission;
-    }
-
-    public void setAuditPermission(String auditPermission) {
-        this.auditPermission = auditPermission;
+    public void setValidated(Boolean validated) {
+        this.validated = validated;
     }
 }
