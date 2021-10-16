@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBaseBackground"
+    tools:context=".Activiy.CustomerActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:id="@+id/pinSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        tools:ignore="RtlCompat">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/tvProductCode"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/custom_input"
+                android:fontFamily="@font/roboto"
+                android:hint="Search By PIN"
+                android:imeOptions="actionSearch"
+                android:inputType="number"
+                android:paddingLeft="16dp"
+                android:textColor="@color/darkColor900"
+                android:textColorHint="@color/lColor500"
+                android:textSize="13sp" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnAddProduct"
+            style="@style/FontBold"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/ic_btn_search"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/background_black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/userProfileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/pinSearchLayout"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/imgUserProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_user_profile" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/logo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btnBasket"
+            android:gravity="center"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutUserPIN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="48dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvUserPIN"
+                    style="@style/FontRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/custom_input"
+                    android:bottomLeftRadius="10dp"
+                    android:bottomRightRadius="10dp"
+                    android:drawablePadding="8dp"
+                    android:hint="User PIN"
+                    android:inputType="text"
+                    android:paddingLeft="16dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/inputFont"
+                    android:textSize="14sp"
+                    android:topLeftRadius="10dp"
+                    android:topRightRadius="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayouttvUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/textInputLayoutUserPIN"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="48dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvUserName"
+                    style="@style/FontRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/custom_input"
+                    android:bottomLeftRadius="10dp"
+                    android:bottomRightRadius="10dp"
+                    android:drawablePadding="8dp"
+                    android:hint="User Name"
+                    android:inputType="text"
+                    android:paddingLeft="16dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/inputFont"
+                    android:textSize="14sp"
+                    android:topLeftRadius="10dp"
+                    android:topRightRadius="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/editTvUserInfo"
+                style="@style/FontRegular"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginTop="24dp"
+                android:layout_height="150dp"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:background="@drawable/custom_input"
+                android:inputType="text|textMultiLine"
+                android:gravity="top"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/FontBold"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/chkRememberMe"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="48dp"
+                android:background="@drawable/button_background"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Login"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <!-- start Footer version part -->
+    <RelativeLayout
+        android:id="@+id/last_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/tvFooterVersion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:text="@string/copy_right"
+            android:textColor="@color/inputFont"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</RelativeLayout>
+
