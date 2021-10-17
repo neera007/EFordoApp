@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/lColor700"
+    tools:context=".Activiy.CategoryActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"></androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:layout_below="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_color"/>
+<!--    <ScrollView></ScrollView>-->
+</RelativeLayout>
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="fill_parent"-->
+<!--    android:layout_height="fill_parent"-->
+<!--    android:background="@color/colorBaseBackground"-->
+<!--    tools:context=".Activiy.CategoryActivity"-->
+<!--    tools:ignore="MissingDefaultResource">-->
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/userProfileLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="24dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgUserProfile"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:background="@drawable/ic_bmw_logo" />-->
+
+<!--    </RelativeLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/userLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="vertical">-->
+<!--        &lt;!&ndash; todo info section &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/userInfoContainerLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="48dp"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/editTvUserPIN"-->
+<!--                style="@style/FontRegular"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="44dp"-->
+<!--                android:layout_marginLeft="48dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginRight="48dp"-->
+<!--                android:background="@drawable/custom_input"-->
+<!--                android:backgroundTint="@color/white"-->
+<!--                android:bottomLeftRadius="10dp"-->
+<!--                android:bottomRightRadius="10dp"-->
+<!--                android:hint="User PIN"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:textSize="16sp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/editTvUserName"-->
+<!--                style="@style/FontRegular"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="44dp"-->
+<!--                android:layout_marginLeft="48dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginRight="48dp"-->
+<!--                android:background="@drawable/custom_input"-->
+<!--                android:backgroundTint="@color/white"-->
+<!--                android:bottomLeftRadius="10dp"-->
+<!--                android:bottomRightRadius="10dp"-->
+<!--                android:hint="User Name"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:textSize="16sp" />-->
+
+<!--        </LinearLayout>-->
+
+
+
+<!--    </LinearLayout>-->
+
+
+<!--    &lt;!&ndash; start Footer version part &ndash;&gt;-->
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/last_button_container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:baselineAligned="false">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnBack"-->
+<!--            style="@style/FontBold"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/button_background"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:text="Back"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold" />-->
+<!--    </RelativeLayout>-->
+<!--</RelativeLayout>-->
+

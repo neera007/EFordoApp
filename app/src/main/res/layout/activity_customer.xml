@@ -13,9 +13,9 @@
         android:id="@+id/pinSearchLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="48dp"
         android:orientation="horizontal"
         tools:ignore="RtlCompat">
         <LinearLayout
@@ -24,21 +24,22 @@
             android:layout_weight="1">
 
             <EditText
-                android:id="@+id/tvProductCode"
+                android:id="@+id/editTvUserSearchByPIN"
+                style="@style/FontRegular"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
+                android:backgroundTint="@color/white"
                 android:background="@drawable/custom_input"
-                android:fontFamily="@font/roboto"
                 android:hint="Search By PIN"
                 android:imeOptions="actionSearch"
                 android:inputType="number"
                 android:paddingLeft="16dp"
                 android:textColor="@color/darkColor900"
                 android:textColorHint="@color/lColor500"
-                android:textSize="13sp" />
+                android:textSize="16sp" />
         </LinearLayout>
         <Button
-            android:id="@+id/btnAddProduct"
+            android:id="@+id/btnUserSearchByPIN"
             style="@style/FontBold"
             android:layout_width="42dp"
             android:layout_height="42dp"
@@ -61,115 +62,139 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
             android:background="@drawable/ic_user_profile" />
 
     </RelativeLayout>
+
     <LinearLayout
-        android:id="@+id/logo_layout"
+        android:id="@+id/userLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:gravity="center_vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+        android:orientation="vertical">
+        <!-- todo info section -->
         <LinearLayout
+            android:id="@+id/userInfoContainerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:id="@+id/btnBasket"
+            android:layout_marginTop="48dp"
             android:gravity="center"
             android:orientation="vertical">
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutUserPIN"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="48dp"
-                android:layout_marginRight="48dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tvUserPIN"
-                    style="@style/FontRegular"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@drawable/custom_input"
-                    android:bottomLeftRadius="10dp"
-                    android:bottomRightRadius="10dp"
-                    android:drawablePadding="8dp"
-                    android:hint="User PIN"
-                    android:inputType="text"
-                    android:paddingLeft="16dp"
-                    android:singleLine="true"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/inputFont"
-                    android:textSize="14sp"
-                    android:topLeftRadius="10dp"
-                    android:topRightRadius="10dp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayouttvUserName"
+            <EditText
+                android:id="@+id/editTvUserPIN"
+                style="@style/FontRegular"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/textInputLayoutUserPIN"
-                android:layout_marginTop="24dp"
+                android:layout_height="44dp"
                 android:layout_marginLeft="48dp"
-                android:layout_marginRight="48dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tvUserName"
-                    style="@style/FontRegular"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@drawable/custom_input"
-                    android:bottomLeftRadius="10dp"
-                    android:bottomRightRadius="10dp"
-                    android:drawablePadding="8dp"
-                    android:hint="User Name"
-                    android:inputType="text"
-                    android:paddingLeft="16dp"
-                    android:singleLine="true"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/inputFont"
-                    android:textSize="14sp"
-                    android:topLeftRadius="10dp"
-                    android:topRightRadius="10dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="48dp"
+                android:background="@drawable/custom_input"
+                android:backgroundTint="@color/white"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:hint="User PIN"
+                android:paddingLeft="16dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTvUserName"
+                style="@style/FontRegular"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="48dp"
+                android:paddingLeft="16dp"
+                android:hint="User Name"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/custom_input"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:textSize="16sp"
+                />
+
 
             <EditText
                 android:id="@+id/editTvUserInfo"
                 style="@style/FontRegular"
                 android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_marginLeft="48dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="48dp"
-                android:layout_marginTop="24dp"
-                android:layout_height="150dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/custom_input"
                 android:bottomLeftRadius="10dp"
                 android:bottomRightRadius="10dp"
-                android:background="@drawable/custom_input"
+                android:gravity="top"
                 android:inputType="text|textMultiLine"
-                android:gravity="top"/>
+                android:textSize="16sp"
+                android:padding="16dp" />
         </LinearLayout>
 
+        <!--  todo Button section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnBack"
                 style="@style/FontBold"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/chkRememberMe"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginRight="48dp"
+                android:layout_marginRight="24dp"
+                android:layout_weight="1"
                 android:background="@drawable/button_background"
                 android:gravity="center_horizontal"
                 android:paddingTop="10dp"
-                android:text="Login"
+                android:text="Back"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnReset"
+                style="@style/FontBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chkRememberMe"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="24dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Reset"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/FontBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chkRememberMe"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Next"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/black"

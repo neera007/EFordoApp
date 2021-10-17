@@ -58,10 +58,11 @@
             app:layout_constraintTop_toBottomOf="@+id/tvActiviyName">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_user_id"
+                android:id="@+id/tvUserId"
                 style="@style/FontRegular"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:backgroundTint="@color/white"
                 android:background="@drawable/custom_input"
                 android:bottomLeftRadius="10dp"
                 android:bottomRightRadius="10dp"
@@ -70,7 +71,7 @@
                 android:inputType="text"
                 android:paddingLeft="16dp"
                 android:singleLine="true"
-                android:text=""
+                android:text="faysal"
                 android:textColor="@color/black"
                 android:textColorHint="@color/inputFont"
                 android:textSize="14sp"
@@ -92,10 +93,11 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_password"
+                android:id="@+id/tvpassword"
                 style="@style/FontRegular"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:backgroundTint="@color/white"
                 android:background="@drawable/custom_input"
                 android:bottomLeftRadius="10dp"
                 android:bottomRightRadius="10dp"
@@ -105,7 +107,7 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:singleLine="true"
-                android:text=""
+                android:text="123"
                 android:textColor="@color/black"
                 android:textColorHint="@color/inputFont"
                 android:textSize="14sp"

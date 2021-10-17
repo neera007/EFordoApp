@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -114,6 +115,8 @@ public class Utility {
         }
         return stringBuilder.toString();
     }
+
+
 
 
 }

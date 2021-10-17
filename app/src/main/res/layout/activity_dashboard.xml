@@ -217,19 +217,19 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layoutStock"
+            android:id="@+id/layoutNewReq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="30dp"
-            android:layout_alignBottom="@+id/btnBasket">
+            android:layout_alignBottom="@+id/btnBasket"
+            android:paddingRight="30dp">
+
             <ImageButton
-                android:id="@+id/btnStock"
+                android:id="@+id/imgBtnNewReq"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@drawable/ic_new"
                 android:layout_marginLeft="64dp"
-                android:backgroundTint="?attr/dashboard_secondary_icon_text_color"
-                />
+                android:background="@drawable/ic_new"
+                android:backgroundTint="?attr/dashboard_secondary_icon_text_color" />
         </LinearLayout>
 
         <!-- todo ********end  bottom nev bar ***********-->
@@ -246,7 +246,7 @@
             android:gravity="bottom">
 
             <TextView
-                android:id="@+id/tvStockforBtn"
+                android:id="@+id/tvNewReq"
                 style="@style/FontRegular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

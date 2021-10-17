@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,39 +22,45 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.e_fordoapp.ApiConfig.ApiConfig;
+import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Service.LoginService;
 import com.example.e_fordoapp.Utility.Utility;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView user_id , password,tvActiviyName;
+    private TextView tvUserId,tvpassword;
     private LinearLayout logoLayout;
     private Button btnLogin,btnSettings;
+    private LoginService loginService;
     private CheckBox chkRememberMe;
-
-   // private LoginService loginService;
-
+    public static final String PREFS_NAME = "MyPrefsFile";
+    private static final String PREF_USERNAME = "username";
+    private static final String PREF_PASSWORD = "password";
+    String UserID,Password ;
     Utility utility;
-    Animation bottom_anim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //todo <<<<< Animation >>>
-      //  bottom_anim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
-//        logoLayout = findViewById(R.id.logo_layout);
-//        tvActiviyName = findViewById(R.id.tvActiviyName);
-//        logoLayout.setAnimation(bottom_anim);
-//        tvActiviyName.setAnimation(bottom_anim);
-
-
-        user_id = findViewById(R.id.txt_user_id);
-        password = findViewById(R.id.txt_password);
+        tvUserId = findViewById(R.id.tvUserId);
+        tvpassword = findViewById(R.id.tvpassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnSettings = findViewById(R.id.btnSettings);
+        chkRememberMe = findViewById(R.id.chkRememberMe);
 
-
+        //todo Shared Preferences
+        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        String username = pref.getString(PREF_USERNAME, null);
+        String password = pref.getString(PREF_PASSWORD, null);
 
 
         //todo ************ OnclickListener ***********
@@ -65,13 +72,49 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view == btnLogin ) {
-            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+            //todo validation check
+            if(tvUserId.getText().toString().length() == 0){
+                tvUserId.setError("User ID Required!");
+                return;
+            }
+            if(tvpassword.getText().toString().length() == 0){
+                tvpassword.setError("Password Required!");
+                return;
+            }
+            UserID = tvUserId.getText().toString();
+            Password = tvpassword.getText().toString();
+
+            getUserInfo(UserID,Password);
         }
         if (view == btnSettings ) {
               startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
         }
-        if(view == chkRememberMe){
 
-        }
+    }
+
+    private void getUserInfo(final String user_id, final String password) {
+        loginService = ApiConfig.getApiClient().create(LoginService.class);
+        Call call = loginService.getLoginUser(user_id,password);
+        call.enqueue(new Callback<UserInfo>() {
+            @Override
+            public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                                .edit()
+                                .putString(PREF_USERNAME, UserID)
+                                .putString(PREF_PASSWORD, password)
+                                .commit();
+
+                          startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                          finish();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<UserInfo> call, Throwable t) {
+                Toast.makeText(LoginActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
