@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -26,8 +27,10 @@ import com.example.e_fordoapp.Utility.Utility;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView user_id , password,tvActiviyName;
-    private LinearLayout aarong_logo;
+    private LinearLayout logoLayout;
     private Button btnLogin,btnSettings;
+    private CheckBox chkRememberMe;
+
    // private LoginService loginService;
 
     Utility utility;
@@ -38,11 +41,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         //todo <<<<< Animation >>>
-        bottom_anim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
-        aarong_logo = findViewById(R.id.logo_layout);
-        tvActiviyName = findViewById(R.id.tvActiviyName);
-        aarong_logo.setAnimation(bottom_anim);
-        tvActiviyName.setAnimation(bottom_anim);
+      //  bottom_anim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+//        logoLayout = findViewById(R.id.logo_layout);
+//        tvActiviyName = findViewById(R.id.tvActiviyName);
+//        logoLayout.setAnimation(bottom_anim);
+//        tvActiviyName.setAnimation(bottom_anim);
 
 
         user_id = findViewById(R.id.txt_user_id);
@@ -66,6 +69,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         if (view == btnSettings ) {
               startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+        }
+        if(view == chkRememberMe){
+
         }
     }
 }

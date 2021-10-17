@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activiy.CustomerActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activiy.DashboardActivity"
             android:exported="true" />
         <activity
