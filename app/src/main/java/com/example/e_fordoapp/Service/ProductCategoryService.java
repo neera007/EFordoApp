@@ -14,4 +14,6 @@ public interface ProductCategoryService {
     @GET("itemgroup/all")
     Call<List<ProductCategory>> getProductCategory(@Query("userId") String userId,
                                              @Query("password") String password);
+
+
 }

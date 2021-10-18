@@ -41,7 +41,7 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
     public void onBindViewHolder(MyViewHolder holder, int position) {
         //getting the shelf stock of specified position
         ProductCategory productCategoryItem = productCategory.get(position);
-        holder.tvProductName.setText(productCategoryItem.getRootItemGroupID());
+        holder.tvProductName.setText(productCategoryItem.getItemGroupName());
 //        holder.tvShelf.setText(productCategoryItem.getItemGroupName());
 //        holder.tvStockQty.setText(productCategoryItem.getDescription());
 //        holder.tvStockQty.setText(productCategoryItem.getActivity());

@@ -71,7 +71,7 @@
                 android:inputType="text"
                 android:paddingLeft="16dp"
                 android:singleLine="true"
-                android:text="faysal"
+                android:text="Neera"
                 android:textColor="@color/black"
                 android:textColorHint="@color/inputFont"
                 android:textSize="14sp"
