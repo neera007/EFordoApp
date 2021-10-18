@@ -31,6 +31,7 @@ import com.example.e_fordoapp.Utility.Utility;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.HttpUrl;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        utility = new Utility(this);
         tvUserId = findViewById(R.id.tvUserId);
         tvpassword = findViewById(R.id.tvpassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -82,8 +84,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 return;
             }
             UserID = tvUserId.getText().toString();
-            Password = tvpassword.getText().toString();
-
+            //Password = tvpassword.getText().toString();
+            Password = utility.md5(tvpassword.getText().toString());
             getUserInfo(UserID,Password);
         }
         if (view == btnSettings ) {
@@ -93,26 +95,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void getUserInfo(final String user_id, final String password) {
+        utility.showLoading();
         loginService = ApiConfig.getApiClient().create(LoginService.class);
         Call call = loginService.getLoginUser(user_id,password);
         call.enqueue(new Callback<UserInfo>() {
             @Override
             public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
                 if (response.isSuccessful()) {
+                    utility.hideLoading();
                     if (response.body() != null) {
-                        getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
-                                .edit()
-                                .putString(PREF_USERNAME, UserID)
-                                .putString(PREF_PASSWORD, password)
-                                .commit();
-
-                          startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                          finish();
+                        UserInfo userInfo = response.body();
+                        if (userInfo.getValidated()) {
+                            userInfo.setPassword(password);
+                            utility.setUserInfo(userInfo);
+                            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                            finish();
+                        }else{
+                            utility.message("Invalid User or Password!!!");
+                        }
                     }
                 }
             }
             @Override
             public void onFailure(Call<UserInfo> call, Throwable t) {
+                utility.hideLoading();
                 Toast.makeText(LoginActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

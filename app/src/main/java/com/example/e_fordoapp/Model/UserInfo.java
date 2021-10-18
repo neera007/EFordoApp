@@ -25,6 +25,9 @@ public class UserInfo {
     @SerializedName("Validated")
     @Expose
     private Boolean validated;
+    @SerializedName("Password")
+    @Expose
+    private String password;
 
     public String getUserID() {
         return userID;
@@ -80,5 +83,13 @@ public class UserInfo {
 
     public void setValidated(Boolean validated) {
         this.validated = validated;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

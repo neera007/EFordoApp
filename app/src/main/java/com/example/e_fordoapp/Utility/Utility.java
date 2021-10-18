@@ -17,6 +17,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,6 +96,39 @@ public class Utility {
         return deviceID;
     }
 
+    public void setUserInfo(UserInfo userInfo)
+    {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo add data to Shared preferences
+        String json = gson.toJson(userInfo);
+        editor.putString("userInfo", json);
+        editor.commit();
+    }
+
+    public String getUserID()
+    {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("userInfo", null);
+        if (json == null)
+            return "";
+        Type type = new TypeToken<UserInfo>(){}.getType();
+        UserInfo userInfo=gson.fromJson(json, type);
+        return userInfo.getUserID();
+    }
+
+    public String getPassword()
+    {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("userInfo", null);
+        if (json == null)
+            return "";
+        Type type = new TypeToken<UserInfo>(){}.getType();
+        UserInfo userInfo=gson.fromJson(json, type);
+        return userInfo.getPassword();
+    }
+
     public String setSpace(int ch)
     {
         String sp = "";
@@ -116,7 +151,41 @@ public class Utility {
         return stringBuilder.toString();
     }
 
+    /*public String md5(String s) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
 
+            // Create Hex String
+            StringBuffer hexString = new StringBuffer();
+            for (int i=0; i<messageDigest.length; i++)
+                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+
+            return hexString.toString();
+        }catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }*/
+    public String md5(String in) {
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("MD5");
+            digest.reset();
+            digest.update(in.getBytes());
+            byte[] a = digest.digest();
+            int len = a.length;
+            StringBuilder sb = new StringBuilder(len << 1);
+            for (int i = 0; i < len; i++) {
+                sb.append(Character.forDigit((a[i] & 0xf0) >> 4, 16));
+                sb.append(Character.forDigit(a[i] & 0x0f, 16));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) { e.printStackTrace(); }
+        return "";
+    }
 
 
 }
