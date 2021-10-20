@@ -42,11 +42,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btnLogin,btnSettings;
     private LoginService loginService;
     private CheckBox chkRememberMe;
+
     public static final String PREFS_NAME = "MyPrefsFile";
     private static final String PREF_USERNAME = "username";
     private static final String PREF_PASSWORD = "password";
-    String UserID,Password ;
+
+    String UserID,Password;
     Utility utility;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

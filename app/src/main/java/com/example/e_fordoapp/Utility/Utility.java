@@ -115,7 +115,7 @@ public class Utility {
             return "";
         Type type = new TypeToken<UserInfo>(){}.getType();
         UserInfo userInfo=gson.fromJson(json, type);
-        return userInfo.getUserID();
+        return userInfo.getSoftUser();
     }
 
     public String getPassword()

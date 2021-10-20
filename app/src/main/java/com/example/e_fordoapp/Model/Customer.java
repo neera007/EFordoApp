@@ -67,6 +67,9 @@ public class Customer {
     @SerializedName("RFID_Card")
     @Expose
     private String rFIDCard;
+    @SerializedName("Description")
+    @Expose
+    private String description;
 
     public String getAccountID() {
         return accountID;
@@ -234,6 +237,14 @@ public class Customer {
 
     public void setRFIDCard(String rFIDCard) {
         this.rFIDCard = rFIDCard;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }
