@@ -7,7 +7,7 @@
     android:background="#e4e4e4"
     tools:context=".Activiy.DashboardActivity"
     tools:ignore="HardcodedText">
-
+<!--test-->
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
