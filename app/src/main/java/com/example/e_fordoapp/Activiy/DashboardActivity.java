@@ -18,6 +18,7 @@ import com.example.e_fordoapp.Utility.Utility;
 public class DashboardActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private CardView cardVieNewReq ,cardViePreviousReq,cardVieSettings,cardVieLogout;
+    private ImageButton logOutB;
     Utility utility;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +29,19 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         cardViePreviousReq =findViewById(R.id.cardViePreviousReq);
         cardVieSettings =findViewById(R.id.cardVieSettings);
         cardVieLogout =findViewById(R.id.cardVieLogout);
-
+        logOutB=findViewById(R.id.logOutB);
         //todo ************ OnclickListener ***********
 
         cardVieNewReq.setOnClickListener((View.OnClickListener) this);
         cardViePreviousReq.setOnClickListener((View.OnClickListener) this);
         cardVieSettings.setOnClickListener((View.OnClickListener) this);
         cardVieLogout.setOnClickListener((View.OnClickListener) this);
+
+
+        //BadgeView badge = new BadgeView(this, logOutB);
+        /*badge.setText("1");
+        badge.show();*/
+
     }
 
     @Override

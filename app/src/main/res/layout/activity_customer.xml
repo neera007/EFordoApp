@@ -62,7 +62,8 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/ic_user_profile" />
+            android:background="@drawable/ic_user_profile"
+            android:visibility="gone" />
 
     </RelativeLayout>
 
