@@ -22,6 +22,9 @@
         tools:ignore="UnusedAttribute"
         tools:targetApi="n">
         <activity
+            android:name=".Activiy.RequisitionDetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activiy.ProductInfoActivity"
             android:exported="true" />
         <activity

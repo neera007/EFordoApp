@@ -60,8 +60,7 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
             startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
         }
         if (view == cardViePreviousReq ) {
-          //  startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
-            utility.message("under process !");
+            startActivity(new Intent(getApplicationContext(), RequisitionDetailsActivity.class));
         }
         if (view == cardVieSettings ) {
             startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
