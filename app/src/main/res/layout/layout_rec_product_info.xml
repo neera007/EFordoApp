@@ -88,7 +88,6 @@
 
                     </LinearLayout>
                     <LinearLayout
-                        android:visibility="invisible"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -99,11 +98,11 @@
                             style="@style/FontRegular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Size: "
+                            android:text="Unit: "
                             android:textColor="@color/darkColor900"
                             android:textSize="14sp"/>
                         <TextView
-                            android:id="@+id/tvSize"
+                            android:id="@+id/tvUnit"
                             style="@style/FontRegular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -124,6 +123,7 @@
             android:weightSum="4"
             android:orientation="horizontal">
             <LinearLayout
+                android:visibility="invisible"
                 android:gravity="left"
                 android:layout_weight="2"
                 android:layout_width="wrap_content"
@@ -138,6 +138,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/pColor300"/>
                 <TextView
+
                     android:id="@+id/tvAmount"
                     style="@style/FontRegular"
                     android:layout_width="match_parent"
@@ -145,7 +146,8 @@
                     android:gravity="left"
                     android:text="34,430.00"
                     android:textColor="@color/pColor300"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:ignore="DuplicateIds" />
             </LinearLayout>
 
             <!-- todo plus minus qty button -->
