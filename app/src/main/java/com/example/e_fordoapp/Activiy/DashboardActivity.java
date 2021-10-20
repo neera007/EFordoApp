@@ -19,12 +19,14 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
 
     private CardView cardVieNewReq ,cardViePreviousReq,cardVieSettings,cardVieLogout;
     private ImageButton logOutB;
+    private TextView tvUserId;
     Utility utility;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         utility = new Utility(this);
+        tvUserId=findViewById(R.id.tvUserId);
         cardVieNewReq =findViewById(R.id.cardVieNewReq);
         cardViePreviousReq =findViewById(R.id.cardViePreviousReq);
         cardVieSettings =findViewById(R.id.cardVieSettings);
@@ -37,7 +39,7 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         cardVieSettings.setOnClickListener((View.OnClickListener) this);
         cardVieLogout.setOnClickListener((View.OnClickListener) this);
 
-
+        tvUserId.setText(utility.getUserID());
         //BadgeView badge = new BadgeView(this, logOutB);
         /*badge.setText("1");
         badge.show();*/
