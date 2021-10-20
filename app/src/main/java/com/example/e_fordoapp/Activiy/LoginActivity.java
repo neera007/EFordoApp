@@ -37,7 +37,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView tvUserId,tvpassword;
+    private TextView tvUserId,tvPassword;
     private LinearLayout logoLayout;
     private Button btnLogin,btnSettings;
     private LoginService loginService;
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         utility = new Utility(this);
         tvUserId = findViewById(R.id.tvUserId);
-        tvpassword = findViewById(R.id.tvpassword);
+        tvPassword = findViewById(R.id.tvPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnSettings = findViewById(R.id.btnSettings);
         chkRememberMe = findViewById(R.id.chkRememberMe);
@@ -82,13 +82,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 tvUserId.setError("User ID Required!");
                 return;
             }
-            if(tvpassword.getText().toString().length() == 0){
-                tvpassword.setError("Password Required!");
+            if(tvPassword.getText().toString().length() == 0){
+                tvPassword.setError("Password Required!");
                 return;
             }
             UserID = tvUserId.getText().toString();
             //Password = tvpassword.getText().toString();
-            Password = utility.md5(tvpassword.getText().toString());
+            Password = utility.md5(tvPassword.getText().toString());
             getUserInfo(UserID,Password);
         }
         if (view == btnSettings ) {

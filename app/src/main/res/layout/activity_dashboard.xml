@@ -18,46 +18,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/backB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="8dp"
-        android:src="@drawable/ic_back"
+        android:id="@+id/imgLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ic_bmw_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="16dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvScreenName"
         style="@style/FontBold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
         android:gravity="center_horizontal"
-        android:letterSpacing="0.025"
         android:text="Dashboard"
-        android:textColor="@color/blue"
+        android:textColor="@color/black"
         android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/backB"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp" />
+        app:layout_constraintStart_toEndOf="@+id/imgLogo"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/logOutB"
+        android:id="@+id/badgeReview"
         android:layout_width="35dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:padding="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/add_to_cart"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="16dp" />
+        app:layout_constraintRight_toRightOf="parent"
+         />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -71,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/badgeReview">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -82,15 +77,16 @@
                 style="@style/FontBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
                 android:text="Neera"
                 android:textAllCaps="true"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginLeft="16dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvLoginTime"
@@ -98,14 +94,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Login Time : 10 am"
-                android:textColor="@color/blue"
-                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/tvUserId"
                 app:layout_constraintTop_toBottomOf="@+id/tvUserId" />
-
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -116,7 +108,7 @@
         android:id="@+id/firstSelectionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:weightSum="2"
@@ -142,18 +134,18 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/image_view1"
+                    android:id="@+id/imgNewReq"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:src="@drawable/img_new"
-                    app:layout_constraintBottom_toTopOf="@+id/textView1"
+                    app:layout_constraintBottom_toTopOf="@+id/tvNewReq"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/tvNewReq"
                     style="@style/FontRegular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,7 +159,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_view1" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgNewReq" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -191,18 +183,18 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/image_view20"
+                    android:id="@+id/imgPreviousReq"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:src="@drawable/img_previous"
-                    app:layout_constraintBottom_toTopOf="@+id/textView20"
+                    app:layout_constraintBottom_toTopOf="@+id/tvPreviousReq"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/tvPreviousReq"
                     style="@style/FontRegular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -216,7 +208,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_view20" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgPreviousReq" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -253,18 +245,18 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/image_view1"
+                    android:id="@+id/imgSettings"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:src="@drawable/img_settings"
-                    app:layout_constraintBottom_toTopOf="@+id/textView1"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSettings"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/tvSettings"
                     style="@style/FontRegular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -278,7 +270,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_view1" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgSettings" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -302,18 +294,18 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/image_view20"
+                    android:id="@+id/imgLogout"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:src="@drawable/img_logout"
-                    app:layout_constraintBottom_toTopOf="@+id/textView20"
+                    app:layout_constraintBottom_toTopOf="@+id/tvLogout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/tvLogout"
                     style="@style/FontRegular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -326,7 +318,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_view20" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgLogout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -334,6 +326,31 @@
 
     </LinearLayout>
 
+    <!-- todo fixed Footer Copyright part -->
+    <RelativeLayout
+        android:id="@+id/last_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tvFooterVersion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:text="@string/copy_right"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->

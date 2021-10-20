@@ -36,7 +36,6 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         cardViePreviousReq =findViewById(R.id.cardViePreviousReq);
         cardVieSettings =findViewById(R.id.cardVieSettings);
         cardVieLogout =findViewById(R.id.cardVieLogout);
-        logOutB=findViewById(R.id.logOutB);
         //todo ************ OnclickListener ***********
 
         cardVieNewReq.setOnClickListener((View.OnClickListener) this);
@@ -44,7 +43,7 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         cardVieSettings.setOnClickListener((View.OnClickListener) this);
         cardVieLogout.setOnClickListener((View.OnClickListener) this);
 
-        tvUserId.setText(utility.getUserID());
+        tvUserId.setText("Login By : " + utility.getUserID());
         String currentTime = new SimpleDateFormat("hh:mm a", Locale.getDefault()).format(new Date());
         tvLoginTime.setText("Login Time: "+currentTime);
 

@@ -42,9 +42,9 @@ tools:context=".Activiy.SplashScreenActivity">
         android:layout_centerInParent="true"
         android:layout_marginTop="22dp"
         android:gravity="center"
-        android:text="Sales Requisition"
+        android:text="E-Fordo"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="28sp" />
 
 
 
