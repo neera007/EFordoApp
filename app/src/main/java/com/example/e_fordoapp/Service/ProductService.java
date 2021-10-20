@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 public interface ProductService {
     //http://172.29.35.5:2521/api/itemInfo/allitem?userId=syeed&password=123
-    @GET("itemInfo/allitem")
+    @GET("api/itemInfo/allitem")
     Call<List<ProductCategory>> getAllProduct(@Query("userId") String userId,
                                               @Query("password") String password);
 
@@ -19,7 +19,7 @@ public interface ProductService {
 //                                                        @Query("password") String password,
 //                                                        @Query("itemGroup") String itemGroup);
 
-    @GET("itemInfo/itembygroup")
+    @GET("api/itemInfo/itembygroup")
     Call<List<Product>> getProductByCategoryID(@Query("userId") String userId,
                                                @Query("password") String password,
                                                @Query("itemGroup") String itemGroup);

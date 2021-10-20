@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.ProductCategory;
 import com.example.e_fordoapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -45,7 +47,11 @@ public class ProductInfoAdapter extends RecyclerView.Adapter<ProductInfoAdapter.
         holder.tvProductName.setText(ProductItem.getItemName());
         holder.tvUnit.setText(ProductItem.getUnit());
         holder.tvPrice.setText(ProductItem.getPrice());
-      //  holder.tvProductName.setText(ProductItem.getMaxQty());
+        if (ProductItem.getItemImageName().isEmpty()==false) {
+            String ImageURL = "http://103.58.95.39:801/images/" + ProductItem.getItemImageName();
+            Picasso.get().load(ImageURL).into(holder.imageView);
+            Picasso.get().load(ImageURL).resize(60, 60);
+        }
     }
 
     @Override
@@ -56,6 +62,7 @@ public class ProductInfoAdapter extends RecyclerView.Adapter<ProductInfoAdapter.
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvProductName, tvProductCode,tvUnit,tvPrice;
+        ImageView imageView;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
@@ -63,6 +70,7 @@ public class ProductInfoAdapter extends RecyclerView.Adapter<ProductInfoAdapter.
             tvProductName = itemView.findViewById(R.id.tvProductName);
             tvUnit = itemView.findViewById(R.id.tvUnit);
             tvPrice = itemView.findViewById(R.id.tvPrice);
+            imageView=itemView.findViewById(R.id.imageView);
         }
     }
 }

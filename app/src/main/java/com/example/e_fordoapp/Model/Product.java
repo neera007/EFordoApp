@@ -63,6 +63,9 @@ public class Product {
     @SerializedName("LastUpdatedBy")
     @Expose
     private String lastUpdatedBy;
+    @SerializedName("ItemImageName")
+    @Expose
+    private String itemImageName;
 
     public String getRecID() {
         return recID;
@@ -214,6 +217,14 @@ public class Product {
 
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    public String getItemImageName() {
+        return itemImageName;
+    }
+
+    public void setItemImageName(String itemImageName) {
+        this.itemImageName = itemImageName;
     }
 
 }
