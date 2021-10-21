@@ -41,7 +41,7 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_info);
-
+        utility = new Utility(this);
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
         ItemGroup="1";

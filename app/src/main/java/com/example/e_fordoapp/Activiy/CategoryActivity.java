@@ -39,7 +39,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-
+        utility = new Utility(this);
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
         loadProductList(utility.getUserID(),utility.getPassword());
