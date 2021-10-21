@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.e_fordoapp.ApiConfig.ApiConfig;
 import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.ProductCategory;
 import com.example.e_fordoapp.R;
@@ -48,7 +49,7 @@ public class ProductInfoAdapter extends RecyclerView.Adapter<ProductInfoAdapter.
         holder.tvUnit.setText(ProductItem.getUnit());
         holder.tvPrice.setText(ProductItem.getPrice());
         if (ProductItem.getItemImageName().isEmpty()==false) {
-            String ImageURL = "http://103.58.95.39:801/images/" + ProductItem.getItemImageName();
+            String ImageURL = ApiConfig.getApiClient().baseUrl()+"/images/" + ProductItem.getItemImageName();
             Picasso.get().load(ImageURL).into(holder.imageView);
             Picasso.get().load(ImageURL).resize(60, 60);
         }
