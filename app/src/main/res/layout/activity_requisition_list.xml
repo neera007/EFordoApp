@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorBaseBackground"
+android:orientation="vertical"
+tools:context=".Activiy.RequisitionListActivity"
+tools:ignore="HardcodedText">
+
+<TextView
+    android:id="@+id/tvActiviyName"
+    style="@style/FontBold"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:text="Requisition List"
+    android:textColor="@color/black"
+    android:textSize="28sp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:ignore="MissingConstraints" />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycleView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal"
+    tools:ignore="MissingConstraints"
+    app:layout_constraintTop_toBottomOf="@+id/tvActiviyName"
+    ></androidx.recyclerview.widget.RecyclerView>
+
+
+<!-- todo fixed Footer Copyright part -->
+<RelativeLayout
+    android:id="@+id/last_button_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="bottom"
+    android:baselineAligned="false"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/tvFooterVersion"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:text="@string/copy_right"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

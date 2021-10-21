@@ -22,7 +22,7 @@ import java.util.Locale;
 public class DashboardActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private CardView cardVieNewReq ,cardViePreviousReq,cardVieSettings,cardVieLogout;
-    private ImageButton logOutB;
+    private ImageButton imgBtnReview;
     private TextView tvUserId,tvLoginTime;
     Utility utility;
     @Override
@@ -30,26 +30,27 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         utility = new Utility(this);
+
         tvUserId=findViewById(R.id.tvUserId);
         tvLoginTime=findViewById(R.id.tvLoginTime);
+        imgBtnReview=findViewById(R.id.imgBtnReview);
         cardVieNewReq =findViewById(R.id.cardVieNewReq);
         cardViePreviousReq =findViewById(R.id.cardViePreviousReq);
         cardVieSettings =findViewById(R.id.cardVieSettings);
         cardVieLogout =findViewById(R.id.cardVieLogout);
-        //todo ************ OnclickListener ***********
 
+
+        //todo ************ OnclickListener ***********
+        imgBtnReview.setOnClickListener((View.OnClickListener) this);
         cardVieNewReq.setOnClickListener((View.OnClickListener) this);
         cardViePreviousReq.setOnClickListener((View.OnClickListener) this);
         cardVieSettings.setOnClickListener((View.OnClickListener) this);
         cardVieLogout.setOnClickListener((View.OnClickListener) this);
 
+        //show user id & login time
         tvUserId.setText("Login By : " + utility.getUserID());
         String currentTime = new SimpleDateFormat("hh:mm a", Locale.getDefault()).format(new Date());
         tvLoginTime.setText("Login Time: "+currentTime);
-
-        //BadgeView badge = new BadgeView(this, logOutB);
-        /*badge.setText("1");
-        badge.show();*/
 
     }
 
@@ -58,17 +59,20 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         if (view == cardVieNewReq ) {
             startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
         }
-        if (view == cardViePreviousReq ) {
-            startActivity(new Intent(getApplicationContext(), RequisitionDetailsActivity.class));
+        else if (view == cardViePreviousReq ) {
+            startActivity(new Intent(getApplicationContext(), RequisitionListActivity.class));
         }
-        if (view == cardVieSettings ) {
+        else if (view == cardVieSettings ) {
             startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
         }
-        if (view == cardVieLogout ) {
+        else if (view == cardVieLogout ) {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
+        }
+        else if (view == imgBtnReview ) {
+            startActivity(new Intent(getApplicationContext(),ReviewActivity.class));
         }
     }
 }
