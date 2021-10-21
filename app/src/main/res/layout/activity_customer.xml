@@ -1,223 +1,377 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/colorBaseBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e4e4e4"
     tools:context=".Activiy.CustomerActivity"
-    tools:ignore="MissingDefaultResource">
+    tools:ignore="HardcodedText">
+    <!--test-->
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/custom_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/pinSearchLayout"
+    <ImageButton
+        android:id="@+id/imgLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ic_bmw_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvScreenName"
+        style="@style/FontBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_horizontal"
+        android:text="Customer Details"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imgLogo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/imgBtnReview"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/add_to_cart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="128dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:elevation="12dp"-->
+<!--        app:cardCornerRadius="8dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imgBtnReview">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--           -->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginLeft="48dp"
-        android:orientation="horizontal"
-        tools:ignore="RtlCompat">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_login_bg"
+        android:elevation="12dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:contentPadding="0dp"
+       android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
-            <EditText
-                android:id="@+id/editTvUserSearchByPIN"
-                style="@style/FontRegular"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:backgroundTint="@color/white"
-                android:background="@drawable/custom_input"
-                android:hint="Search By PIN"
-                android:imeOptions="actionSearch"
-                android:inputType="number"
-                android:paddingLeft="16dp"
-                android:textColor="@color/darkColor900"
-                android:textColorHint="@color/lColor500"
-                android:textSize="16sp" />
-        </LinearLayout>
-        <Button
-            android:id="@+id/btnUserSearchByPIN"
-            style="@style/FontBold"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:background="@drawable/ic_btn_search"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textColor="@color/background_black"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/userProfileLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/pinSearchLayout"
-        android:layout_marginTop="24dp">
-
-        <ImageView
-            android:id="@+id/imgUserProfile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/ic_user_profile"
-            android:visibility="gone" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/userLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
-        <!-- todo info section -->
-        <LinearLayout
-            android:id="@+id/userInfoContainerLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="48dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/editTvUserPIN"
-                style="@style/FontRegular"
+            <TextView
+                android:id="@+id/tvSearch"
+                style="@style/FontBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Search"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <LinearLayout
+                android:id="@+id/textInputLayout_userid"
+                app:layout_constraintTop_toBottomOf="@+id/tvSearch"
+                android:layout_marginTop="24dp"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="48dp"
-                android:background="@drawable/custom_input"
-                android:backgroundTint="@color/white"
-                android:bottomLeftRadius="10dp"
-                android:bottomRightRadius="10dp"
-                android:hint="User PIN"
-                android:paddingLeft="16dp"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSetup">
 
-            <EditText
-                android:id="@+id/editTvUserName"
-                style="@style/FontRegular"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTvUserSearchByPIN"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/custom_input"
+                        android:bottomLeftRadius="10dp"
+                        android:bottomRightRadius="10dp"
+                        android:drawablePadding="8dp"
+                        android:hint="Search By PIN"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/inputFont"
+                        android:textSize="14sp"
+                        android:topLeftRadius="10dp"
+                        android:topRightRadius="10dp"
+                        android:layout_gravity="center_horizontal" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/btnUserSearchByPIN"
+                    style="@style/FontBold"
+                    android:layout_width="42dp"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/ic_btn_search"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/background_black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutGetUserPIN"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginLeft="48dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:hintEnabled="false"
                 android:layout_marginTop="16dp"
-                android:layout_marginRight="48dp"
-                android:paddingLeft="16dp"
-                android:hint="User Name"
-                android:backgroundTint="@color/white"
-                android:background="@drawable/custom_input"
-                android:bottomLeftRadius="10dp"
-                android:bottomRightRadius="10dp"
-                android:textSize="16sp"
-                />
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout_userid">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTvUserName"
+                    style="@style/FontRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/custom_input"
+                    android:bottomLeftRadius="10dp"
+                    android:bottomRightRadius="10dp"
+                    android:drawablePadding="8dp"
+                    android:hint="User Name"
+                    android:inputType="text"
+                    android:paddingLeft="16dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkColor900"
+                    android:textColorHint="@color/dColor400"
+                    android:textSize="14sp"
+                    android:topLeftRadius="10dp"
+                    android:topRightRadius="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/editTvUserInfo"
-                style="@style/FontRegular"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutGetUserName"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginLeft="48dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:hintEnabled="false"
                 android:layout_marginTop="16dp"
-                android:layout_marginRight="48dp"
-                android:backgroundTint="@color/white"
-                android:background="@drawable/custom_input"
-                android:bottomLeftRadius="10dp"
-                android:bottomRightRadius="10dp"
-                android:gravity="top"
-                android:inputType="text|textMultiLine"
-                android:textSize="16sp"
-                android:padding="16dp" />
-        </LinearLayout>
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGetUserPIN">
 
-        <!--  todo Button section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="48dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTvUserPIN"
+                    style="@style/FontRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/custom_input"
+                    android:bottomLeftRadius="10dp"
+                    android:bottomRightRadius="10dp"
+                    android:drawablePadding="8dp"
+                    android:hint="User PIN"
+                    android:inputType="text"
+                    android:paddingLeft="16dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkColor900"
+                    android:textColorHint="@color/dColor400"
+                    android:textSize="14sp"
+                    android:topLeftRadius="10dp"
+                    android:topRightRadius="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutGetUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:hintEnabled="false"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGetUserPIN">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTvUserInfo"
+                    style="@style/FontRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@drawable/custom_input"
+                    android:bottomLeftRadius="10dp"
+                    android:bottomRightRadius="10dp"
+                    android:drawablePadding="8dp"
+                    android:hint="Details"
+                    android:inputType="text|textMultiLine"
+                    android:paddingLeft="16dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkColor900"
+                    android:textColorHint="@color/dColor400"
+                    android:textSize="14sp"
+                    android:topLeftRadius="10dp"
+                    android:topRightRadius="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:id="@+id/topButtonLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGetUserInfo">
+
+                <Button
+                    android:id="@+id/btnReset"
+                    style="@style/FontBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/chkRememberMe"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginRight="20dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="10dp"
+                    android:text="Clear All"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnNext"
+                    style="@style/FontBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/chkRememberMe"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="48dp"
+                    android:layout_weight="1"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:background="@drawable/button_background"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="10dp"
+                    android:text="Next"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnBack"
                 style="@style/FontBold"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/chkRememberMe"
+                android:layout_height="48dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginRight="24dp"
-                android:layout_weight="1"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/button_background"
                 android:gravity="center_horizontal"
                 android:paddingTop="10dp"
                 android:text="Back"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topButtonLayout" />
 
-            <Button
-                android:id="@+id/btnReset"
-                style="@style/FontBold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/chkRememberMe"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="24dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_background"
-                android:gravity="center_horizontal"
-                android:paddingTop="10dp"
-                android:text="Reset"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/btnNext"
-                style="@style/FontBold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/chkRememberMe"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:background="@drawable/button_background"
-                android:gravity="center_horizontal"
-                android:paddingTop="10dp"
-                android:text="Next"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
-
-
-
-
-    <!-- start Footer version part -->
+    <!-- todo fixed Footer Copyright part -->
     <RelativeLayout
         android:id="@+id/last_button_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:baselineAligned="false">
+        android:layout_gravity="bottom"
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/tvFooterVersion"
@@ -226,8 +380,9 @@
             android:layout_gravity="bottom"
             android:gravity="center"
             android:text="@string/copy_right"
-            android:textColor="@color/inputFont"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </RelativeLayout>
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 

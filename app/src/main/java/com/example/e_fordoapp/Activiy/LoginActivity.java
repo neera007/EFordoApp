@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvUserId = findViewById(R.id.tvUserId);
         tvPassword = findViewById(R.id.tvPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        btnSettings = findViewById(R.id.btnSettings);
+      //  btnSettings = findViewById(R.id.btnSettings);
         chkRememberMe = findViewById(R.id.chkRememberMe);
 
         //todo Shared Preferences
@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //todo ************ OnclickListener ***********
         btnLogin.setOnClickListener((View.OnClickListener) this);
-        btnSettings.setOnClickListener((View.OnClickListener) this);
+       // btnSettings.setOnClickListener((View.OnClickListener) this);
 
     }
 
@@ -91,9 +91,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Password = utility.md5(tvPassword.getText().toString());
             getUserInfo(UserID,Password);
         }
-        if (view == btnSettings ) {
-              startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-        }
+//        if (view == btnSettings ) {
+//              startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+//        }
 
     }
 
