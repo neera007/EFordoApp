@@ -42,9 +42,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
-        UserID="Neera";
-        Password="123";
-        loadProductList(UserID,Password);
+        loadProductList(utility.getUserID(),utility.getPassword());
         btnNext.setOnClickListener((View.OnClickListener) this);
     }
 

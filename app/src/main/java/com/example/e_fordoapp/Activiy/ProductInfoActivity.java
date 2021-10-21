@@ -44,10 +44,9 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
 
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
-        UserID="Neera";
-        Password="123";
         ItemGroup="1";
-        loadCategoryList(UserID,Password,ItemGroup);
+
+        loadCategoryList(utility.getUserID(),utility.getPassword(),ItemGroup);
         btnNext.setOnClickListener((View.OnClickListener) this);
     }
 
