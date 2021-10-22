@@ -55,6 +55,8 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
 
+        productList=utility.getBusketProduct();
+
         //todo creating recyclerview adapter
         BasketAdapter adapter = new BasketAdapter(ReviewActivity.this, productList);
 

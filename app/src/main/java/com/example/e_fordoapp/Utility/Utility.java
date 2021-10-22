@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.example.e_fordoapp.Model.Customer;
 import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
@@ -221,5 +222,39 @@ public class Utility {
             editor.commit();
         }
     }
+
+    public void setCustomer(Customer customer) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo add data to Shared preferences
+        String json = gson.toJson(customer);
+        editor.putString("customer", json);
+        editor.commit();
+    }
+
+    public Customer getCustomer() {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("customer", null);
+        Type type = new TypeToken<Customer>(){}.getType();
+        Customer customer=gson.fromJson(json, type);
+        return customer;
+    }
+
+    public void clearCustomer() {
+        boolean isUpdate = false;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo get current busket data
+        Customer customer = new Customer();
+
+        // Todo add data to Shared preferences
+        String json = gson.toJson(customer);
+        editor.putString("customer", json);
+        editor.commit();
+
+    }
+
 }
 
