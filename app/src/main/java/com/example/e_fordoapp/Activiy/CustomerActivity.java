@@ -55,10 +55,10 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         editTvUserInfo.setFocusable(false);
 
         //todo ************ OnclickListener ***********
-        btnUserSearchByPIN.setOnClickListener((View.OnClickListener) this);
-        btnBack.setOnClickListener((View.OnClickListener) this);
-        btnReset.setOnClickListener((View.OnClickListener) this);
-        btnNext.setOnClickListener((View.OnClickListener) this);
+        btnUserSearchByPIN.setOnClickListener(this);
+        btnBack.setOnClickListener(this);
+        btnReset.setOnClickListener(this);
+        btnNext.setOnClickListener(this);
 
         editTvUserPIN.requestFocus();
         loadCustomerFromSession();

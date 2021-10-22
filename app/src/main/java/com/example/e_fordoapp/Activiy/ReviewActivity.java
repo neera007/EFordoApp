@@ -13,8 +13,12 @@ import android.widget.Toast;
 import com.example.e_fordoapp.Adapter.BasketAdapter;
 import com.example.e_fordoapp.Adapter.ProductInfoAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
+import com.example.e_fordoapp.Model.Customer;
+import com.example.e_fordoapp.Model.Order;
 import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.R;
+import com.example.e_fordoapp.Service.CustomerService;
+import com.example.e_fordoapp.Service.OrderService;
 import com.example.e_fordoapp.Service.ProductService;
 import com.example.e_fordoapp.Utility.Utility;
 
@@ -27,6 +31,7 @@ import retrofit2.Response;
 
 public class ReviewActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private OrderService orderService;
     private RecyclerView recycleView;
     Button btnNext;
     List<Product> productList= new ArrayList<>();
@@ -37,18 +42,68 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
         utility = new Utility(this);
+
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
 
-        btnNext.setOnClickListener((View.OnClickListener) this);
+        btnNext.setOnClickListener(this);
         loadBasketProduct();
     }
 
     @Override
     public void onClick(View view) {
         if(view == btnNext) {
-            startActivity(new Intent(getApplicationContext(), InvoiceActivity.class));
+            // Todo Save Order
+            Order order=new Order();
+            Customer customer=utility.getCustomer();
+            List<Product> basketProduct=utility.getBusketProduct();
+
+            if (basketProduct.size()==0){
+                utility.message("No data found for save");
+                return;
+            }
+            if (customer==null){
+                utility.message("No customer found for save");
+                return;
+            }
+            order.setAccountID(customer.getAccountID());
+            order.setUserID(utility.getUserID());
+            order.setPassword(utility.getPassword());
+            order.setOrderDetailInfos(utility.getBusketProduct());
+            saveOrder(order);
         }
+    }
+
+    private void saveOrder(Order order) {
+        orderService = ApiConfig.getApiClient().create(OrderService.class);
+        Call<Order> call = orderService.saveInvoice(order);
+        call.enqueue(new Callback<Order>() {
+            @Override
+            public void onResponse(Call<Order> call, Response<Order> response) {
+                if (response.isSuccessful())
+                {
+                    String success= response.body().getSuccess();
+                    if (success.equals("true")) {
+                        // if saved--------------------------------------
+                        final String orderNumber = response.body().getOrderNumber();
+                        //todo after saved go to success page
+                        Intent intent = new Intent(ReviewActivity.this, InvoiceActivity.class);
+                        intent.putExtra("extra_orderNumber", orderNumber);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        // if not saved-----------------------------------------
+                        utility.message(response.body().getResponseText());
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<Order> call, Throwable t) {
+                utility.message("Transaction error."+t.getMessage());
+            }
+        });
+
     }
 
     private void loadBasketProduct(){
