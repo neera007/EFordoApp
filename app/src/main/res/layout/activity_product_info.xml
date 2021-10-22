@@ -13,8 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/custom_rectangle"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imgLogo"
@@ -51,7 +52,6 @@
         android:text="BabyFood"
         android:textColor="@color/black"
         android:textSize="16sp"
-
         app:layout_constraintStart_toStartOf="@+id/tvScreenName"
         app:layout_constraintTop_toBottomOf="@+id/tvScreenName" />
     <ImageButton
@@ -72,8 +72,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <View
         android:id="@+id/view2"
@@ -81,9 +83,7 @@
         android:layout_height="1dp"
         android:layout_below="@+id/recycleView"
         android:background="@color/border_color"
-        tools:ignore="MissingConstraints" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/recycleView"/>
 
     <LinearLayout
         android:layout_width="match_parent"

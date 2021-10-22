@@ -21,7 +21,7 @@
         android:id="@+id/imgLogo"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ic_bmw_logo"
@@ -37,7 +37,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:gravity="center_horizontal"
-        android:text="Product Category List"
+        android:text="Category List"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/imgLogo"
@@ -54,24 +54,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:scrollbars="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:ignore="MissingConstraints" />
-
-    <View
-        android:layout_below="@+id/recycleView"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/border_color"
-        tools:ignore="MissingConstraints" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 
     <LinearLayout
@@ -120,4 +111,3 @@
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
