@@ -59,19 +59,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvUserId = findViewById(R.id.tvUserId);
         tvPassword = findViewById(R.id.tvPassword);
         btnLogin = findViewById(R.id.btnLogin);
-      //  btnSettings = findViewById(R.id.btnSettings);
+        btnSettings = findViewById(R.id.btnSettings);
         chkRememberMe = findViewById(R.id.chkRememberMe);
 
-        //todo Shared Preferences
-        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
-        String username = pref.getString(PREF_USERNAME, null);
-        String password = pref.getString(PREF_PASSWORD, null);
-
-
         //todo ************ OnclickListener ***********
-        btnLogin.setOnClickListener((View.OnClickListener) this);
-       // btnSettings.setOnClickListener((View.OnClickListener) this);
-
+        btnLogin.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
     }
 
     @Override
@@ -87,14 +80,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 return;
             }
             UserID = tvUserId.getText().toString();
-            //Password = tvpassword.getText().toString();
             Password = utility.md5(tvPassword.getText().toString());
             getUserInfo(UserID,Password);
         }
-//        if (view == btnSettings ) {
-//              startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-//        }
-
+        else if (view == btnSettings ) {
+              startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+        }
     }
 
     private void getUserInfo(final String user_id, final String password) {

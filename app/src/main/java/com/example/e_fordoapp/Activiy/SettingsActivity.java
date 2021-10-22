@@ -22,9 +22,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        utility = new Utility(this);
         btnBack = findViewById(R.id.btnBack);
-        btnCheck = findViewById(R.id.btnBack);
-        btnSave = findViewById(R.id.btnBack);
+        btnCheck = findViewById(R.id.btnCheck);
+        btnSave = findViewById(R.id.btnSave);
 
         //todo ************ OnclickListener ***********
         btnBack.setOnClickListener((View.OnClickListener) this);
@@ -36,14 +37,17 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         if(view==btnBack)
         {
-            startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
+            super.onBackPressed();
+            //startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
         }
         if(view==btnCheck)
         {
+            utility.message("Under construction");
             //startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
         }
         if(view==btnSave)
         {
+            utility.message("Under construction");
             //startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
         }
     }
