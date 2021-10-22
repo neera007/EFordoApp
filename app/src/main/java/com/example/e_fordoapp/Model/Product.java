@@ -66,6 +66,9 @@ public class Product {
     @SerializedName("ItemImageName")
     @Expose
     private String itemImageName;
+    @SerializedName("ItemQty")
+    @Expose
+    private int itemQty;
 
     public String getRecID() {
         return recID;
@@ -227,4 +230,11 @@ public class Product {
         this.itemImageName = itemImageName;
     }
 
+    public int getItemQty() {
+        return itemQty;
+    }
+
+    public void setItemQty(int itemQty) {
+        this.itemQty = itemQty;
+    }
 }
