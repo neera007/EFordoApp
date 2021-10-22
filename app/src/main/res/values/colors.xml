@@ -4,6 +4,7 @@
     <color name="colorBaseBackground">#ffd633</color>
     <color name="black">#000000</color>
     <color name="blue">#00004d</color>
+    <color name="ashColor">#e4e4e4</color>
 
     <color name="inputFont">#999999</color>
     <color name="darkYellow">#e6b800</color>

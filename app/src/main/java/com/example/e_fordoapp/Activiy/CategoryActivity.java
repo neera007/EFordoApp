@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_fordoapp.Adapter.ProductCategoryAdapter;
+import com.example.e_fordoapp.Adapter.ProductInfoAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
 import com.example.e_fordoapp.Model.ProductCategory;
 import com.example.e_fordoapp.R;
@@ -26,11 +28,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CategoryActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView tvTotalQty;
     private RecyclerView recycleView;
-    String UserID,Password;
-    Button btnNext;
-
+    Button btnNext,btnBack;
+    String strnCategoryID="";
+    String strnCategoryName="";
     List<ProductCategory> productCategoryItemList= new ArrayList<>();
     private ProductCategoryService productCategoryService;
     String categoryCode;
@@ -42,15 +43,25 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         utility = new Utility(this);
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
+        btnBack = findViewById(R.id.btnBack);
         loadProductList(utility.getUserID(),utility.getPassword());
         btnNext.setOnClickListener((View.OnClickListener) this);
+        btnBack.setOnClickListener((View.OnClickListener) this);
     }
 
     @Override
     public void onClick(View view) {
         if(view==btnNext)
         {
-            startActivity(new Intent(getApplicationContext(), ProductInfoActivity.class));
+            //todo pass value from activity to activity
+            Intent myIntent = new Intent(this, ProductInfoActivity.class);
+            myIntent.putExtra("categoryID", strnCategoryID);
+            myIntent.putExtra("categoryName", strnCategoryName);
+            startActivity(myIntent); // todo goto then next activity
+        }
+        else if(view==btnBack)
+        {
+            startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
         }
     }
 
@@ -73,6 +84,17 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 
                 //todo setting adapter to recyclerview
                 recycleView.setAdapter(adapter);
+                // Todo event assign when click to adapter
+                adapter.setOnRecycleViewItemClickListener(new ProductCategoryAdapter.OnRecycleViewItemClickListener() {
+                    @Override
+                    public void onRecycleViewItemClick(int position) {
+                       // utility.message(String.valueOf(productCategoryItemList.get(position).getItemGroupID()+productCategoryItemList.get(position).getItemGroupName()));
+                        strnCategoryID= productCategoryItemList.get(position).getItemGroupID();
+                        strnCategoryName= productCategoryItemList.get(position).getItemGroupName();
+                        String toast_msg= "Category : " + productCategoryItemList.get(position).getItemGroupName() + " is selected !" ;
+                        Toast.makeText(CategoryActivity.this,toast_msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
@@ -82,4 +104,6 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         });
 
     }
+
+
 }

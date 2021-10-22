@@ -29,10 +29,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProductInfoActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView tvTotalQty;
+    private TextView tvTotalQty,tvCategoryName;
     private RecyclerView recycleView;
-    String ItemGroup;
-    Button btnNext;
+    Button btnNext,btnBack;
+    String strnCategoryID="";
+    String strnCategoryName="";
     List<Product> productItemList= new ArrayList<>();
     private ProductService productService;
     Utility utility;
@@ -41,12 +42,26 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_info);
         utility = new Utility(this);
+        //todo*** get and set values from audit activity
+        Intent intent = getIntent();
+        strnCategoryID = intent.getStringExtra("categoryID");
+        strnCategoryName = intent.getStringExtra("categoryName");
+
+
+
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
-        ItemGroup="1";
+        btnBack = findViewById(R.id.btnBack);
+        tvCategoryName = findViewById(R.id.tvCategoryName);
 
-        loadProductList(utility.getUserID(),utility.getPassword(),ItemGroup);
+        tvCategoryName.setText("Caterory : "+ strnCategoryName); //todo set Cat name in next activity
+
+
+        loadProductList(utility.getUserID(),utility.getPassword(),strnCategoryID);
+
+
         btnNext.setOnClickListener((View.OnClickListener) this);
+        btnBack.setOnClickListener((View.OnClickListener) this);
     }
 
     @Override
@@ -54,9 +69,13 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
         if(view == btnNext) {
             startActivity(new Intent(getApplicationContext(), ReviewActivity.class));
         }
+        else if(view == btnBack) {
+            startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
+        }
     }
 
     private void loadProductList(final String user_id, final String password, final String itemGroup){  //item group
+
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
         utility.showLoading();
