@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rowRelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/newArrivalsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        card_view:cardCornerRadius="3dp"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="@color/white"
+        >
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight=".1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/statusImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_baseline_check_24" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:layout_weight=".9"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvOrderNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/FontBold"
+                    android:textColor="@color/green_700"
+                    android:layout_marginRight="2dp"
+                    android:gravity="center_vertical"
+                    android:text="Order Number: 20211022153951" />
+                <TextView
+                    android:id="@+id/tvOrderDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:gravity="center_vertical"
+                    android:text="Order Date: 22-Oct-21 3:39:51 PM" />
+                <TextView
+                    android:id="@+id/tvAccountName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:text="Customer: Shah Md Faysal(10001)" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
