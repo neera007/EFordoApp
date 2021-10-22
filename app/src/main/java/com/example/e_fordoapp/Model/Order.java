@@ -19,28 +19,31 @@ public class Order {
     @SerializedName("OrderDetailInfos")
     @Expose
     private List<Product> orderDetailInfos = null;
-
     @SerializedName("Success")
     @Expose
     private String success;
-
     @SerializedName("ResponseText")
     @Expose
     private String responseText;
-
     @SerializedName("OrderID")
     @Expose
     private String orderID;
-
     @SerializedName("OrderNumber")
     @Expose
     private String orderNumber;
-
+    @SerializedName("AccountNumber")
+    @Expose
+    private String accountNumber;
+    @SerializedName("AccountName")
+    @Expose
+    private String accountName;
+    @SerializedName("OrderDate")
+    @Expose
+    private String orderDate;
 
     public String getAccountID() {
         return accountID;
     }
-
     public void setAccountID(String accountID) {
         this.accountID = accountID;
     }
@@ -48,7 +51,6 @@ public class Order {
     public String getUserID() {
         return userID;
     }
-
     public void setUserID(String userID) {
         this.userID = userID;
     }
@@ -56,7 +58,6 @@ public class Order {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -64,7 +65,6 @@ public class Order {
     public List<Product> getOrderDetailInfos() {
         return orderDetailInfos;
     }
-
     public void setOrderDetailInfos(List<Product> orderDetailInfos) {
         this.orderDetailInfos = orderDetailInfos;
     }
@@ -90,5 +90,24 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 
+    public String getAccountName() {
+        return accountName;
+    }
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
 }

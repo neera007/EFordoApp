@@ -360,6 +360,7 @@
             android:layout_height="48dp"
             android:layout_gravity="bottom"
             android:gravity="center"
+            android:visibility="gone"
             android:text="@string/copy_right"
             android:textColor="@color/black"
             android:textSize="14sp" />
