@@ -21,14 +21,31 @@
         android:background="@color/border_color"/>
     <!--    <ScrollView></ScrollView>-->
 
-    <Button
-        android:id="@+id/btnNext"
-        android:gravity="center"
-        android:layout_below="@+id/recycleView"
-        android:background="@color/black"
+
+    <!-- todo fixed Footer Copyright part -->
+    <RelativeLayout
+        android:id="@+id/last_button_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:textColor="@color/white"
-        />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_gravity="bottom"
+            android:background="@color/colorBaseBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textColor="@color/white"
+            />
+    </RelativeLayout>
+
 </RelativeLayout>

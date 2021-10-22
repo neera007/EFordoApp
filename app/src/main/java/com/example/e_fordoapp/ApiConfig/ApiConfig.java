@@ -13,7 +13,7 @@ public class ApiConfig {
     //private static final String BASE_URL = "http://172.29.19.17:9090/api/";
     // todo live
     //private static final String BASE_URL = "http://172.29.19.17:9090/api/";
-    private static final String BASE_URL = "http://103.58.95.39:801/";
+    private static final String BASE_URL = "http://45.118.62.65:801/";
 
     public static Retrofit getApiClient() {
         if (retrofit == null) {

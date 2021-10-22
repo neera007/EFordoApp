@@ -11,6 +11,8 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.example.e_fordoapp.Model.Customer;
+import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.google.gson.Gson;
@@ -70,32 +72,6 @@ public class Utility {
         }
     }
 
-    public void setDeviceID(String DeviceID)
-    {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-
-        // Todo add data to Shared preferences
-        String json = gson.toJson(DeviceID);
-        editor.putString("deviceID", json);
-        editor.commit();
-    }
-
-    public String getDeviceID()
-    {
-        String deviceID="";
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("deviceID", null);
-        if (json == null)
-            deviceID="";
-        else {
-            Type type = new TypeToken<String>() {
-            }.getType();
-            deviceID = gson.fromJson(json, type);
-        }
-        return deviceID;
-    }
-
     public void setUserInfo(UserInfo userInfo)
     {
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -151,24 +127,6 @@ public class Utility {
         return stringBuilder.toString();
     }
 
-    /*public String md5(String s) {
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            // Create Hex String
-            StringBuffer hexString = new StringBuffer();
-            for (int i=0; i<messageDigest.length; i++)
-                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-
-            return hexString.toString();
-        }catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }*/
     public String md5(String in) {
         MessageDigest digest;
         try {
@@ -187,6 +145,116 @@ public class Utility {
         return "";
     }
 
+    public void updateBusketProduct(List<Product> busketProducts) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        clearBusket();
+        // Todo add data to Shared preferences
+        String json = gson.toJson(busketProducts);
+        editor.putString("busketProducts", json);
+        editor.commit();
+    }
+
+    public void clearBusket() {
+        boolean isUpdate = false;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo get current busket data
+        ArrayList<Product> busketProducts = new ArrayList<>();
+
+        // Todo add data to Shared preferences
+        String json = gson.toJson(busketProducts);
+        editor.putString("busketProducts", json);
+        editor.commit();
+
+    }
+
+    public ArrayList<Product> getBusketProduct() {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("busketProducts", null);
+        if (json == null)
+            return new ArrayList<Product>();
+        Type type = new TypeToken<ArrayList<Product>>() {
+        }.getType();
+
+        ArrayList<Product> stockItem=new ArrayList<Product>();
+        ArrayList<Product> tempStockItem=gson.fromJson(json, type);
+        for(int i=0;i<tempStockItem.size();i++)
+            if(tempStockItem.get(i).getItemQty()>0)
+                stockItem.add(tempStockItem.get(i));
+
+        return stockItem;
+    }
+
+    public void setBusketProduct(Product product) {
+        boolean isUpdate = false;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo get current busket data
+        ArrayList<Product> busketProducts = getBusketProduct();
+
+        // Todo check this product already exist in the busket or not. if exists then qty will be increase
+
+        for (int i = 0; i < busketProducts.size(); i++) {
+            if (busketProducts.get(i).getItemCode().equals(product.getItemCode())) {
+                busketProducts.get(i).setItemQty(busketProducts.get(i).getItemQty() + 1);
+
+                // Todo add data to Shared preferences
+                String json = gson.toJson(busketProducts);
+                editor.putString("busketProducts", json);
+                editor.commit();
+
+                isUpdate = true;
+                break;
+            }
+        }
+
+        // Todo if not exists then add this product in the busket
+        if (!isUpdate) {
+            product.setItemQty(1);
+            busketProducts.add(product);
+
+            // Todo add data to Shared preferences
+            String json = gson.toJson(busketProducts);
+            editor.putString("busketProducts", json);
+            editor.commit();
+        }
+    }
+
+    public void setCustomer(Customer customer) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo add data to Shared preferences
+        String json = gson.toJson(customer);
+        editor.putString("customer", json);
+        editor.commit();
+    }
+
+    public Customer getCustomer() {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("customer", null);
+        Type type = new TypeToken<Customer>(){}.getType();
+        Customer customer=gson.fromJson(json, type);
+        return customer;
+    }
+
+    public void clearCustomer() {
+        boolean isUpdate = false;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo get current busket data
+        Customer customer = new Customer();
+
+        // Todo add data to Shared preferences
+        String json = gson.toJson(customer);
+        editor.putString("customer", json);
+        editor.commit();
+
+    }
 
 }
 
