@@ -61,6 +61,18 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         btnNext.setOnClickListener((View.OnClickListener) this);
 
         editTvUserPIN.requestFocus();
+        loadCustomerFromSession();
+    }
+
+    private void loadCustomerFromSession() {
+        Customer customer= new Customer();
+        customer=utility.getCustomer();
+        if (customer!=null)
+        {
+            editTvUserPIN.setText(customer.getAccountNumber());
+            editTvUserName.setText(customer.getAccountName());
+            editTvUserInfo.setText(customer.getDescription());
+        }
     }
 
     @Override
@@ -109,6 +121,7 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
                     editTvUserPIN.setText(customer.getAccountNumber());
                     editTvUserName.setText(customer.getAccountName());
                     editTvUserInfo.setText(customer.getDescription());
+                    utility.setCustomer(customer);
                     utility.hideKeyboard(CustomerActivity.this);
                 }
             }
