@@ -29,7 +29,7 @@ import retrofit2.Response;
 
 public class CategoryActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView recycleView;
-    Button btnNext,btnBack;
+    Button btnBack;
     String strnCategoryID="";
     String strnCategoryName="";
     List<ProductCategory> productCategoryItemList= new ArrayList<>();
@@ -42,24 +42,23 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_category);
         utility = new Utility(this);
         recycleView = findViewById(R.id.recycleView);
-        btnNext = findViewById(R.id.btnNext);
         btnBack = findViewById(R.id.btnBack);
         loadProductList(utility.getUserID(),utility.getPassword());
-        btnNext.setOnClickListener((View.OnClickListener) this);
+
         btnBack.setOnClickListener((View.OnClickListener) this);
     }
 
     @Override
     public void onClick(View view) {
-        if(view==btnNext)
-        {
-            //todo pass value from activity to activity
-            Intent myIntent = new Intent(this, ProductInfoActivity.class);
-            myIntent.putExtra("categoryID", strnCategoryID);
-            myIntent.putExtra("categoryName", strnCategoryName);
-            startActivity(myIntent); // todo goto then next activity
-        }
-        else if(view==btnBack)
+//        if(view==btnNext)
+//        {
+//            //todo pass value from activity to activity
+//            Intent myIntent = new Intent(this, ProductInfoActivity.class);
+//            myIntent.putExtra("categoryID", strnCategoryID);
+//            myIntent.putExtra("categoryName", strnCategoryName);
+//            startActivity(myIntent); // todo goto then next activity
+//        }
+        if(view==btnBack)
         {
             startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
         }
@@ -93,6 +92,11 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                         strnCategoryName= productCategoryItemList.get(position).getItemGroupName();
                         String toast_msg= "Category : " + productCategoryItemList.get(position).getItemGroupName() + " is selected !" ;
                         Toast.makeText(CategoryActivity.this,toast_msg, Toast.LENGTH_SHORT).show();
+
+                        Intent myIntent = new Intent(CategoryActivity.this, ProductInfoActivity.class);
+                        myIntent.putExtra("categoryID", strnCategoryID);
+                        myIntent.putExtra("categoryName", strnCategoryName);
+                        startActivity(myIntent);
                     }
                 });
             }
