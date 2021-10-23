@@ -16,9 +16,9 @@ public class ApiConfig {
 //    String BASE_URL_NEW="http://"+setting.getBaseIP()+"/";
 
     //todo ******* static call from Utility ************
-    static Utility utility=new Utility();
-    static Setting setting=utility.getSetting();
-    static String BASE_URL_NEW="http://"+setting.getBaseIP()+"/";
+//    static Utility utility=new Utility();
+//    static Setting setting=utility.getSetting();
+//    static String BASE_URL_NEW="http://"+setting.getBaseIP()+"/";
     //todo *****************
 
     // todo local
