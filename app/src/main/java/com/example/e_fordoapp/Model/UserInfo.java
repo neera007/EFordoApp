@@ -28,11 +28,16 @@ public class UserInfo {
     @SerializedName("Password")
     @Expose
     private String password;
+    @SerializedName("PasswordWoEncrypt")
+    @Expose
+    private String passwordWoEncrypt;
+    @SerializedName("RememberMe")
+    @Expose
+    private Boolean rememberMe;
 
     public String getUserID() {
         return userID;
     }
-
     public void setUserID(String userID) {
         this.userID = userID;
     }
@@ -40,7 +45,6 @@ public class UserInfo {
     public String getSoftUser() {
         return softUser;
     }
-
     public void setSoftUser(String softUser) {
         this.softUser = softUser;
     }
@@ -48,7 +52,6 @@ public class UserInfo {
     public String getActivity() {
         return activity;
     }
-
     public void setActivity(String activity) {
         this.activity = activity;
     }
@@ -56,7 +59,6 @@ public class UserInfo {
     public String getPriority() {
         return priority;
     }
-
     public void setPriority(String priority) {
         this.priority = priority;
     }
@@ -64,7 +66,6 @@ public class UserInfo {
     public String getLastUpdatedDate() {
         return lastUpdatedDate;
     }
-
     public void setLastUpdatedDate(String lastUpdatedDate) {
         this.lastUpdatedDate = lastUpdatedDate;
     }
@@ -72,7 +73,6 @@ public class UserInfo {
     public String getLastUpdatedBy() {
         return lastUpdatedBy;
     }
-
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
     }
@@ -80,7 +80,6 @@ public class UserInfo {
     public Boolean getValidated() {
         return validated;
     }
-
     public void setValidated(Boolean validated) {
         this.validated = validated;
     }
@@ -88,8 +87,21 @@ public class UserInfo {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPasswordWoEncrypt() {
+        return passwordWoEncrypt;
+    }
+    public void setPasswordWoEncrypt(String passwordWoEncrypt) {
+        this.passwordWoEncrypt = passwordWoEncrypt;
+    }
+
+    public Boolean getRememberMe() {
+        return rememberMe;
+    }
+    public void setRememberMe(Boolean rememberMe) {
+        this.rememberMe = rememberMe;
     }
 }

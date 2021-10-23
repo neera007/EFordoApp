@@ -83,6 +83,14 @@ public class Utility {
         editor.commit();
     }
 
+    public UserInfo getUserInfo() {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("userInfo", null);
+        Type type = new TypeToken<UserInfo>(){}.getType();
+        UserInfo userInfo=gson.fromJson(json, type);
+        return userInfo;
+    }
+
     public String getUserID()
     {
         Gson gson = new Gson();
