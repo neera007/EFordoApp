@@ -33,7 +33,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
 
     private OrderService orderService;
     private RecyclerView recycleView;
-    Button btnNext;
+    Button btnNext,btnBack;
     List<Product> productList= new ArrayList<>();
     Utility utility;
 
@@ -45,14 +45,20 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
 
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
+        btnBack=findViewById(R.id.btnBack);
 
         btnNext.setOnClickListener(this);
+        btnBack.setOnClickListener(this);
         loadBasketProduct();
     }
 
     @Override
     public void onClick(View view) {
-        if(view == btnNext) {
+        if (view==btnBack)
+        {
+            super.onBackPressed();
+        }
+        else if(view == btnNext) {
             // Todo Save Order
             Order order=new Order();
             Customer customer=utility.getCustomer();

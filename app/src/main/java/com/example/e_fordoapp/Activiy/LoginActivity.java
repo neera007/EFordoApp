@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static final String PREF_USERNAME = "username";
     private static final String PREF_PASSWORD = "password";
 
-    String UserID,Password;
+    String userID,password;
     Utility utility;
 
     @Override
@@ -65,6 +65,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //todo ************ OnclickListener ***********
         btnLogin.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
+
+        //todo load data from shared preference
+        UserInfo userInfo=utility.getUserInfo();
+        if (userInfo!=null)
+        {
+            if (userInfo.getRememberMe()!=null && userInfo.getRememberMe()) {
+                tvUserId.setText(userInfo.getSoftUser());
+                if (userInfo.getPasswordWoEncrypt()!=null)
+                    tvPassword.setText(userInfo.getPasswordWoEncrypt());
+                chkRememberMe.setChecked(userInfo.getRememberMe());
+            }
+        }
     }
 
     @Override
@@ -79,19 +91,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 tvPassword.setError("Password Required!");
                 return;
             }
-            UserID = tvUserId.getText().toString();
-            Password = utility.md5(tvPassword.getText().toString());
-            getUserInfo(UserID,Password);
+            userID = tvUserId.getText().toString();
+            password = utility.md5(tvPassword.getText().toString());
+            getUserInfo(userID,password);
         }
         else if (view == btnSettings ) {
               startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
         }
     }
 
-    private void getUserInfo(final String user_id, final String password) {
+    private void getUserInfo(final String userId, final String password) {
         utility.showLoading();
         loginService = ApiConfig.getApiClient().create(LoginService.class);
-        Call call = loginService.getLoginUser(user_id,password);
+        Call call = loginService.getLoginUser(userId,password);
         call.enqueue(new Callback<UserInfo>() {
             @Override
             public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
@@ -100,8 +112,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if (response.body() != null) {
                         UserInfo userInfo = response.body();
                         if (userInfo.getValidated()) {
+
+                            //if user is validated then store data in shared preference
                             userInfo.setPassword(password);
+                            userInfo.setPasswordWoEncrypt(tvPassword.getText().toString());
+                            userInfo.setRememberMe(chkRememberMe.isChecked());
                             utility.setUserInfo(userInfo);
+
                             startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                             finish();
                         }else{
