@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.e_fordoapp.Adapter.ProductCategoryAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
 import com.example.e_fordoapp.Model.Customer;
+import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.ProductCategory;
 import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
@@ -61,10 +62,11 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         btnNext.setOnClickListener(this);
 
         editTvUserPIN.requestFocus();
-        loadCustomerFromSession();
+        utility.clearCustomer();
+        //loadCustomerFromSession();
     }
 
-    private void loadCustomerFromSession() {
+    /*private void loadCustomerFromSession() {
         Customer customer= new Customer();
         customer=utility.getCustomer();
         if (customer!=null)
@@ -73,7 +75,7 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             editTvUserName.setText(customer.getAccountName());
             editTvUserInfo.setText(customer.getDescription());
         }
-    }
+    }*/
 
     @Override
     public void onClick(View view) {
@@ -88,10 +90,27 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             editTvUserPIN.requestFocus();
         }
         else if (view == btnNext ) {
+            // todo check validation
+            if (editTvUserName.getText().length()<2)
+            {
+                utility.message("Customer selection required.");
+                return;
+            }
+
+            List<Product> productItemList= new ArrayList<>();
+            productItemList=utility.getBusketProduct();
+            if (productItemList.size()>0)
+            {
+                utility.message("Some products are in basket. This will be clear.");
+                utility.clearBusket();
+            }
+
             startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
+
+
         }
         else if (view == btnUserSearchByPIN ) {
-            //validation check
+            // todo validation check
             if(editTvUserSearchByPIN.getText().toString().length() == 0){
                 utility.message("Please enter PIN");
                 return;

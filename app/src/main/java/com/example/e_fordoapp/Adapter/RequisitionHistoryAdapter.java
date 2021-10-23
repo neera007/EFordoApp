@@ -44,6 +44,8 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
         holder.tvOrderNumber.setText(orderItem.getOrderNumber());
         holder.tvOrderDate.setText(orderItem.getOrderDate());
         holder.tvAccountName.setText(orderItem.getAccountName());
+        holder.tvStatus.setText(orderItem.getStatus());
+        holder.tvOrderAmount.setText("৳: "+orderItem.getOrderAmount());
     }
 
     @Override
@@ -52,13 +54,17 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvOrderNumber, tvOrderDate,tvAccountName;
+        TextView tvOrderNumber, tvOrderDate,tvAccountName,tvStatus,tvOrderAmount;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
             tvOrderNumber = itemView.findViewById(R.id.tvOrderNumber);
             tvOrderDate = itemView.findViewById(R.id.tvOrderDate);
             tvAccountName = itemView.findViewById(R.id.tvAccountName);
+            tvOrderDate = itemView.findViewById(R.id.tvOrderDate);
+            tvAccountName = itemView.findViewById(R.id.tvAccountName);
+            tvStatus = itemView.findViewById(R.id.tvStatus);
+            tvOrderAmount = itemView.findViewById(R.id.tvOrderAmount);
         }
     }
 }

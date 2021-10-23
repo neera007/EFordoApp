@@ -62,7 +62,7 @@
                     android:gravity="center_vertical"
                     android:text="Order Number: 20211022153951" />
                     <TextView
-                        android:id="@+id/tvOrderStatus"
+                        android:id="@+id/tvStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/hint_color"
@@ -89,7 +89,7 @@
                         android:layout_marginRight="2dp"
                         android:text="Customer: Shah Md Faysal(10001)" />
                     <TextView
-                        android:id="@+id/tvTotalAmount"
+                        android:id="@+id/tvOrderAmount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/FontBold"

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.example.e_fordoapp.Model.Customer;
 import com.example.e_fordoapp.Model.Product;
+import com.example.e_fordoapp.Model.Setting;
 import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.google.gson.Gson;
@@ -28,6 +29,10 @@ public class Utility {
     Context context;
     SharedPreferences sharedPreferences;
     ProgressDialog progress;
+
+    public Utility() {
+        sharedPreferences = context.getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);
+    }
 
     public Utility(Context context) {
         this.context = context;
@@ -119,6 +124,25 @@ public class Utility {
         for (int i = 0; i < ch; i++)
             sp = sp + " ";
         return sp;
+    }
+
+    public void setSetting(Setting settingInfo)
+    {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+
+        // Todo add data to Shared preferences
+        String json = gson.toJson(settingInfo);
+        editor.putString("settingInfo", json);
+        editor.commit();
+    }
+
+    public Setting getSetting() {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("settingInfo", null);
+        Type type = new TypeToken<Setting>(){}.getType();
+        Setting settingInfo=gson.fromJson(json, type);
+        return settingInfo;
     }
 
     public String currencyFormat( Double InputString)

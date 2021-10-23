@@ -31,12 +31,13 @@ import retrofit2.Response;
 public class ProductInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvTotalQty,tvCategoryName;
     private RecyclerView recycleView;
+    private ProductService productService;
     Button btnNext,btnBack;
     String strnCategoryID="";
     String strnCategoryName="";
     List<Product> productItemList= new ArrayList<>();
-    private ProductService productService;
     Utility utility;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -10,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.e_fordoapp.Model.Setting;
+import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Service.LoginService;
 import com.example.e_fordoapp.Utility.Utility;
@@ -17,22 +19,39 @@ import com.example.e_fordoapp.Utility.Utility;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnBack,btnCheck,btnSave;
+    private TextView tvBaseIP;
     Utility utility;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         utility = new Utility(this);
+
         btnBack = findViewById(R.id.btnBack);
         btnCheck = findViewById(R.id.btnCheck);
         btnSave = findViewById(R.id.btnSave);
+        tvBaseIP=findViewById(R.id.tvBaseIP);
 
         //todo ************ OnclickListener ***********
-        btnBack.setOnClickListener((View.OnClickListener) this);
-        btnCheck.setOnClickListener((View.OnClickListener) this);
-        btnSave.setOnClickListener((View.OnClickListener) this);
+        btnBack.setOnClickListener(this);
+        btnCheck.setOnClickListener(this);
+        btnSave.setOnClickListener(this);
+
+        //todo load data from shared preference
+        loadDefaultSettings();
     }
 
+    private void loadDefaultSettings() {
+        Setting setting=utility.getSetting();
+        tvBaseIP.setText("");
+        if (setting!=null)
+        {
+            if (setting.getBaseIP()!=null) {
+                tvBaseIP.setText(setting.getBaseIP());
+            }
+        }
+    }
     @Override
     public void onClick(View view) {
         if(view==btnBack)
@@ -47,8 +66,15 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
         if(view==btnSave)
         {
-            utility.message("Under construction");
-            //startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
+            if(tvBaseIP.getText().length()<7)
+            {
+                utility.message("Please enter API IP address.");
+                return;
+            }
+            Setting settingInfo= new Setting();
+            settingInfo.setBaseIP(tvBaseIP.getText().toString());
+            utility.setSetting(settingInfo);
+            utility.message("Connection setup is successful");
         }
     }
 

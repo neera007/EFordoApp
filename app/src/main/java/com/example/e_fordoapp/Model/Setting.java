@@ -11,7 +11,7 @@ public class Setting {
     public String getBaseIP() {
         return baseIP;
     }
-    public void setBaseIP(String userID) {
+    public void setBaseIP(String baseIP) {
         this.baseIP = baseIP;
     }
 }

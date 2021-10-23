@@ -40,6 +40,12 @@ public class Order {
     @SerializedName("OrderDate")
     @Expose
     private String orderDate;
+    @SerializedName("Status")
+    @Expose
+    private String status;
+    @SerializedName("OrderAmount")
+    @Expose
+    private String orderAmount;
 
     public String getAccountID() {
         return accountID;
@@ -109,5 +115,19 @@ public class Order {
     }
     public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getOrderAmount() {
+        return orderAmount;
+    }
+    public void setOrderAmount(String orderAmount) {
+        this.orderAmount = orderAmount;
     }
 }

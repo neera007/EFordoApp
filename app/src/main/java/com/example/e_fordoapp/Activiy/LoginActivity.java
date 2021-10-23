@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
+import com.example.e_fordoapp.Model.Setting;
 import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Service.LoginService;
@@ -67,6 +68,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnSettings.setOnClickListener(this);
 
         //todo load data from shared preference
+        loadDefaultUserInfo();
+    }
+
+    private void loadDefaultUserInfo() {
         UserInfo userInfo=utility.getUserInfo();
         if (userInfo!=null)
         {
@@ -82,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view == btnLogin ) {
+            Setting settingInfo=utility.getSetting();
             //todo validation check
             if(tvUserId.getText().toString().length() == 0){
                 tvUserId.setError("User ID Required!");
@@ -89,6 +95,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
             if(tvPassword.getText().toString().length() == 0){
                 tvPassword.setError("Password Required!");
+                return;
+            }
+            if (settingInfo==null)
+            {
+                utility.message("Setup connection required!");
                 return;
             }
             userID = tvUserId.getText().toString();
