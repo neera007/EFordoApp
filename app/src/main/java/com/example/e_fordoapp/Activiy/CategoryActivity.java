@@ -87,11 +87,10 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                 adapter.setOnRecycleViewItemClickListener(new ProductCategoryAdapter.OnRecycleViewItemClickListener() {
                     @Override
                     public void onRecycleViewItemClick(int position) {
-                       // utility.message(String.valueOf(productCategoryItemList.get(position).getItemGroupID()+productCategoryItemList.get(position).getItemGroupName()));
                         strnCategoryID= productCategoryItemList.get(position).getItemGroupID();
                         strnCategoryName= productCategoryItemList.get(position).getItemGroupName();
-                        String toast_msg= "Category : " + productCategoryItemList.get(position).getItemGroupName() + " is selected !" ;
-                        Toast.makeText(CategoryActivity.this,toast_msg, Toast.LENGTH_SHORT).show();
+                       // String toast_msg= "Category : " + productCategoryItemList.get(position).getItemGroupName() + " is selected !" ;
+                       // Toast.makeText(CategoryActivity.this,toast_msg, Toast.LENGTH_SHORT).show();
 
                         Intent myIntent = new Intent(CategoryActivity.this, ProductInfoActivity.class);
                         myIntent.putExtra("categoryID", strnCategoryID);
