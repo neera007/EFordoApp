@@ -153,9 +153,16 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
                         return;
                     }
                     //set data
+                    String invoiceLimit="";
+                    if (customer.getInvCount().equals("0")==false)
+                    {
+                        invoiceLimit="Invoice Limit :"+customer.getInvCount();
+                    }
                     editTvUserPIN.setText(customer.getAccountNumber());
                     editTvUserName.setText(customer.getAccountName());
-                    editTvUserInfo.setText(customer.getDescription());
+                    editTvUserInfo.setText("Credit Limit: "+customer.getLimit()+"\n"
+                                            +invoiceLimit+"\n"
+                                            +customer.getDescription());
                     utility.setCustomer(customer);
                     utility.hideKeyboard(CustomerActivity.this);
                 }

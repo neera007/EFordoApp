@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_fordoapp.Model.Order;
@@ -46,6 +47,13 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
         holder.tvAccountName.setText(orderItem.getAccountName());
         holder.tvStatus.setText(orderItem.getStatus());
         holder.tvOrderAmount.setText("৳: "+orderItem.getOrderAmount());
+        // Todo define Card View  click function---------------------
+        holder.cardViewOrderList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onRecycleViewItemClick(position);
+            }
+        });
     }
 
     @Override
@@ -55,6 +63,7 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvOrderNumber, tvOrderDate,tvAccountName,tvStatus,tvOrderAmount;
+        CardView cardViewOrderList;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
@@ -65,6 +74,16 @@ public class RequisitionHistoryAdapter extends RecyclerView.Adapter<RequisitionH
             tvAccountName = itemView.findViewById(R.id.tvAccountName);
             tvStatus = itemView.findViewById(R.id.tvStatus);
             tvOrderAmount = itemView.findViewById(R.id.tvOrderAmount);
+            cardViewOrderList= itemView.findViewById(R.id.cardViewOrderList);
         }
     }
+
+    RequisitionHistoryAdapter.OnRecycleViewItemClickListener listener;
+    public void setOnRecycleViewItemClickListener(RequisitionHistoryAdapter.OnRecycleViewItemClickListener listener) {
+        this.listener = listener;
+    }
+    public interface OnRecycleViewItemClickListener {
+        void onRecycleViewItemClick(int position);
+    }
+
 }

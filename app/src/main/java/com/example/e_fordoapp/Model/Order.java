@@ -89,6 +89,13 @@ public class Order {
         this.responseText = responseText;
     }
 
+    public String getOrderID() {
+        return orderID;
+    }
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
     public String getOrderNumber() {
         return orderNumber;
     }

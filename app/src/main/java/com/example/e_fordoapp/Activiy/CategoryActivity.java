@@ -43,9 +43,9 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         utility = new Utility(this);
         recycleView = findViewById(R.id.recycleView);
         btnBack = findViewById(R.id.btnBack);
-        loadProductList(utility.getUserID(),utility.getPassword());
 
-        btnBack.setOnClickListener((View.OnClickListener) this);
+        btnBack.setOnClickListener(this);
+        loadProductList(utility.getUserID(),utility.getPassword());
     }
 
     @Override

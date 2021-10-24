@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,6 +29,11 @@ import retrofit2.Response;
 public class RequisitionListActivity extends AppCompatActivity {
     private RecyclerView recycleView;
     List<Order> orderList= new ArrayList<>();
+    String orderID="";
+    String orderNumber="";
+    String orderDate="";
+    String orderAmount="";
+
     private OrderService orderService;
     Utility utility;
 
@@ -59,6 +65,23 @@ public class RequisitionListActivity extends AppCompatActivity {
 
                 //todo setting adapter to recyclerview
                 recycleView.setAdapter(adapter);
+
+                adapter.setOnRecycleViewItemClickListener(new RequisitionHistoryAdapter.OnRecycleViewItemClickListener() {
+                    @Override
+                    public void onRecycleViewItemClick(int position) {
+                        orderID= orderList.get(position).getOrderID();
+                        orderNumber= orderList.get(position).getOrderNumber();
+                        orderDate= orderList.get(position).getOrderDate();
+                        orderAmount= orderList.get(position).getOrderAmount();
+
+                        Intent myIntent = new Intent(RequisitionListActivity.this, RequisitionDetailsActivity.class);
+                        myIntent.putExtra("orderID", orderID);
+                        myIntent.putExtra("orderNumber", orderNumber);
+                        myIntent.putExtra("orderDate", orderDate);
+                        myIntent.putExtra("orderAmount", orderAmount);
+                        startActivity(myIntent);
+                    }
+                });
             }
 
             @Override

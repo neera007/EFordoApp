@@ -24,6 +24,7 @@ tools:ignore="HardcodedText">
     android:layout_marginTop="24dp"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
+    android:visibility="gone"
     android:background="@drawable/ic_bmw_logo"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
@@ -167,6 +168,8 @@ tools:ignore="HardcodedText">
         android:text="@string/copy_right"
         android:textColor="@color/black"
         android:textSize="14sp" />
+
+    
 </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

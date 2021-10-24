@@ -1,6 +1,7 @@
 package com.example.e_fordoapp.Service;
 
 import com.example.e_fordoapp.Model.Order;
+import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.ProductCategory;
 
 import java.util.List;
@@ -21,6 +22,10 @@ public interface OrderService {
     @GET("api/order/orderHistory")
     Call<List<Order>> getOrderHistory(@Query("userId") String userId,
                                                    @Query("password") String password);
-
+    //Get order history
+    @GET("api/order/orderDetails")
+    Call<List<Product>> getorderDetails(@Query("userId") String userId,
+                                        @Query("password") String password,
+                                        @Query("orderID") String orderID);
 
 }
