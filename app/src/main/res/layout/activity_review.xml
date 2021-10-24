@@ -7,7 +7,7 @@ android:layout_height="match_parent"
 android:orientation="vertical"
 tools:context=".Activiy.ReviewActivity"
 tools:ignore="HardcodedText">
-
+<!--todo comments/////////////// -->
 <TextView
     android:id="@+id/tvActiviyName"
     style="@style/FontBold"
