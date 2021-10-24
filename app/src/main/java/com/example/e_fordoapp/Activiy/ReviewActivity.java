@@ -44,7 +44,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
         utility = new Utility(this);
-
+        // todo comments------------------------------
         recycleView = findViewById(R.id.recycleView);
         tvOrderAmount=findViewById(R.id.tvOrderAmount);
         btnNext = findViewById(R.id.btnNext);
