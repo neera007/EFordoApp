@@ -120,7 +120,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
         productList=utility.getBusketProduct();
 
         //todo creating recyclerview adapter
-        BasketAdapter adapter = new BasketAdapter(ReviewActivity.this, productList);
+        BasketAdapter adapter = new BasketAdapter(ReviewActivity.this, productList,true);
 
         //todo setting adapter to recyclerview
         recycleView.setAdapter(adapter);

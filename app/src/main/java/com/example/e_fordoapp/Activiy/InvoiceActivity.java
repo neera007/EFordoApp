@@ -78,7 +78,7 @@ public class InvoiceActivity extends AppCompatActivity implements View.OnClickLi
         //todo creating recyclerview adapter
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
-        BasketAdapter adapter = new BasketAdapter(InvoiceActivity.this, busketItemList);
+        BasketAdapter adapter = new BasketAdapter(InvoiceActivity.this, busketItemList,false);
         recycleView.setAdapter(adapter);
 
         //todo load total amount

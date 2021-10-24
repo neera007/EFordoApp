@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.e_fordoapp.Adapter.BasketAdapter;
 import com.example.e_fordoapp.Adapter.ProductCategoryAdapter;
 import com.example.e_fordoapp.Adapter.ProductInfoAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
@@ -93,24 +94,18 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
                 productItemList = new ArrayList<>(response.body());
 
                 //todo creating recyclerview adapter
-                ProductInfoAdapter adapter = new ProductInfoAdapter(ProductInfoActivity.this, productItemList);
+                BasketAdapter adapter = new BasketAdapter(ProductInfoActivity.this, productItemList,true);
 
                 //todo setting adapter to recyclerview
                 recycleView.setAdapter(adapter);
 
+                //tvOrderAmount.setText("৳: "+String.valueOf(utility.getBusketAmount()));
+
                 // Todo event assign when click to adapter
-                adapter.setOnRecycleViewItemClickListener(new ProductInfoAdapter.OnRecycleViewItemClickListener() {
+                adapter.setOnRecycleViewItemClickListener(new BasketAdapter.OnRecycleViewItemClickListener() {
                     @Override
                     public void onRecycleViewItemClick(int position) {
-                        //utility.message(String.valueOf(busketItemList.get(position).getProductCode()));
-                        //utility.calculateBusketAmount(0.00);
-                        //tvTotalPrice.setText(String.format("%.2f", utility.getBusketAmount()));
-                        //tvTotalQty.setText(String.format("%.2f", utility.getBusketTotalQty()));
-//                        String noOfItems = "0";
-//                        if (utility.getNoOfItems() > 1)
-//                            tvNoOfItem.setText("(" + utility.getNoOfItems() + " items)");
-//                        else
-//                            tvNoOfItem.setText("(" + utility.getNoOfItems() + " item)");
+                        //tvOrderAmount.setText("৳: "+String.valueOf(utility.getBusketAmount()));
                     }
                 });
             }

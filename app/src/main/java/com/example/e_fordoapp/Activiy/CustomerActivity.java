@@ -64,7 +64,7 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         btnNext.setOnClickListener(this);
 
         editTvUserPIN.requestFocus();
-        utility.clearCustomer();
+        //utility.clearCustomer();
         //loadCustomerFromSession();
     }
 

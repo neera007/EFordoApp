@@ -1,11 +1,13 @@
 package com.example.e_fordoapp.Adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,16 +23,18 @@ import java.util.List;
 public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHolder> {
     //this context we will use to inflate the layout
     private final Context mCtx;
+    private boolean isOnlyView=false;
     Utility utility;
 
     //we are storing all the products in a list
     private final List<Product> productList;
 
     //getting the context and product list with constructor
-    public BasketAdapter(Context mCtx, List<Product> productList) {
+    public BasketAdapter(Context mCtx, List<Product> productList, boolean _isOnlyView) {
         this.mCtx = mCtx;
         this.productList = productList;
         utility = new Utility(mCtx);
+        isOnlyView=_isOnlyView;
     }
 
     @Override
@@ -59,6 +63,10 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
             String ImageURL = ApiConfig.getApiClient().baseUrl()+"/images/" + productItem.getItemImageName();
             Picasso.get().load(ImageURL).into(holder.imageView);
             Picasso.get().load(ImageURL).resize(60, 60);
+        }
+
+        if (isOnlyView==false){
+                holder.layoutButton.setVisibility(View.GONE);
         }
 
         // Todo define minus button function---------------------
@@ -123,6 +131,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
         TextView tvProductName, tvProductCode,tvUnit,tvPrice,tvItemQty,tvItemQtyBelow,tvTotalAmount;
         Button btnMinus,btnPlus;
         ImageView imageView;
+        LinearLayout layoutButton;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
@@ -136,6 +145,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
             tvItemQtyBelow=itemView.findViewById(R.id.tvItemQtyBelow);
             btnMinus = itemView.findViewById(R.id.btnMinus);
             btnPlus = itemView.findViewById(R.id.btnPlus);
+            layoutButton=itemView.findViewById(R.id.layoutButton);
         }
     }
 
