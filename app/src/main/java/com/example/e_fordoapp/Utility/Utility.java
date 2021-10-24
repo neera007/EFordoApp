@@ -177,7 +177,7 @@ public class Utility {
         return "";
     }
 
-    public void updateBusketProduct(List<Product> busketProducts) {
+    /*public void updateBusketProduct(List<Product> busketProducts) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         clearBusket();
@@ -185,7 +185,7 @@ public class Utility {
         String json = gson.toJson(busketProducts);
         editor.putString("busketProducts", json);
         editor.commit();
-    }
+    }*/
 
     public void clearBusket() {
         boolean isUpdate = false;
@@ -253,6 +253,25 @@ public class Utility {
             editor.putString("busketProducts", json);
             editor.commit();
         }
+    }
+
+    public Double getBusketAmount() {
+        Double amount=0.00,qty=0.00,salesPrice=0.00;
+
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("busketProducts", null);
+        if (json == null)
+            amount=0.00;
+        Type type = new TypeToken<ArrayList<Product>>() {
+        }.getType();
+
+        ArrayList<Product> tempStockItem=gson.fromJson(json, type);
+        for(int i=0;i<tempStockItem.size();i++) {
+            qty=Double.valueOf(tempStockItem.get(i).getItemQty());
+            salesPrice=Double.valueOf(tempStockItem.get(i).getPrice());
+            amount=amount+(Double.valueOf(salesPrice*qty));
+        }
+        return amount;
     }
 
     public void setCustomer(Customer customer) {

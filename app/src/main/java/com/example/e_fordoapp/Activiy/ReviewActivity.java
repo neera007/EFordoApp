@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_fordoapp.Adapter.BasketAdapter;
@@ -33,6 +34,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
 
     private OrderService orderService;
     private RecyclerView recycleView;
+    TextView tvOrderAmount;
     Button btnNext,btnBack;
     List<Product> productList= new ArrayList<>();
     Utility utility;
@@ -44,14 +46,15 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
         utility = new Utility(this);
 
         recycleView = findViewById(R.id.recycleView);
+        tvOrderAmount=findViewById(R.id.tvOrderAmount);
         btnNext = findViewById(R.id.btnNext);
         btnBack=findViewById(R.id.btnBack);
 
         btnNext.setOnClickListener(this);
         btnBack.setOnClickListener(this);
+
         loadBasketProduct();
     }
-
     @Override
     public void onClick(View view) {
         if (view==btnBack)
@@ -109,13 +112,11 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
                 utility.message("Transaction error."+t.getMessage());
             }
         });
-
     }
 
     private void loadBasketProduct(){
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
-
         productList=utility.getBusketProduct();
 
         //todo creating recyclerview adapter
@@ -123,6 +124,9 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
 
         //todo setting adapter to recyclerview
         recycleView.setAdapter(adapter);
+
+        //todo load total amount
+        tvOrderAmount.setText("৳: "+String.valueOf(utility.getBusketAmount()));
 
         // Todo event assign when click to adapter
         adapter.setOnRecycleViewItemClickListener(new BasketAdapter.OnRecycleViewItemClickListener() {

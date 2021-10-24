@@ -20,7 +20,7 @@ import java.util.List;
 
 public class InvoiceActivity extends AppCompatActivity implements View.OnClickListener{
     Utility utility;
-    private TextView tvSummaryTitle;
+    private TextView tvSummaryTitle,tvOrderAmount;
     private RecyclerView recycleView;
     private Button btnGoToHome,btnPrintInvoice;
     List<Product> busketItemList = new ArrayList<>();
@@ -41,6 +41,7 @@ public class InvoiceActivity extends AppCompatActivity implements View.OnClickLi
 
         //todo textview
         tvSummaryTitle = findViewById(R.id.tvSummaryTitle);
+        tvOrderAmount=findViewById(R.id.tvOrderAmount);
 
         recycleView = findViewById(R.id.recycleView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -79,6 +80,9 @@ public class InvoiceActivity extends AppCompatActivity implements View.OnClickLi
         recycleView.setLayoutManager(new LinearLayoutManager(this));
         BasketAdapter adapter = new BasketAdapter(InvoiceActivity.this, busketItemList);
         recycleView.setAdapter(adapter);
+
+        //todo load total amount
+        tvOrderAmount.setText("৳: "+String.valueOf(utility.getBusketAmount()));
 
         // Todo event assign when click to adapter
         adapter.setOnRecycleViewItemClickListener(new BasketAdapter.OnRecycleViewItemClickListener() {

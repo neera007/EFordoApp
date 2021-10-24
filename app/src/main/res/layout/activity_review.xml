@@ -76,6 +76,7 @@ tools:ignore="HardcodedText">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:layout_below="@+id/borderBeforeNetPay"
             android:orientation="vertical">
             <LinearLayout
@@ -95,11 +96,11 @@ tools:ignore="HardcodedText">
                         android:id="@+id/tvNetPayableTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="2dp"
                         android:layout_marginTop="1.02dp"
                         android:text="Total Amount"
                         android:textColor="@color/darkColor900"
-                        android:textSize="14sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -110,15 +111,15 @@ tools:ignore="HardcodedText">
                     android:paddingRight="16dp">
 
                     <TextView
-                        android:id="@+id/tvNetPayable"
+                        android:id="@+id/tvOrderAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="18dp"
+                        android:layout_marginLeft="2dp"
                         android:layout_marginTop="1.02dp"
                         android:text="৳: 0.00"
                         android:textStyle="bold"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="16sp" />
+                        android:textSize="22sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
