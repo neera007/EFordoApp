@@ -75,7 +75,7 @@
     <!-- todo Net Payment -->
     <LinearLayout
         android:id="@+id/NetPayableLayout"
-      app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
