@@ -53,6 +53,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
         holder.tvUnit.setText(productItem.getUnit());
         holder.tvPrice.setText(productItem.getPrice());
         holder.tvItemQty.setText(String.valueOf(productItem.getItemQty()));
+        holder.tvItemQtyBelow.setText(String.valueOf(productItem.getItemQty()));
         holder.tvTotalAmount.setText(String.format("%.2f", salesAmount));
         if (productItem.getItemImageName().isEmpty()==false) {
             String ImageURL = ApiConfig.getApiClient().baseUrl()+"/images/" + productItem.getItemImageName();
@@ -60,7 +61,57 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
             Picasso.get().load(ImageURL).resize(60, 60);
         }
 
-        listener.onRecycleViewItemClick(position);
+        // Todo define minus button function---------------------
+        holder.btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // calculate qty and sales amount
+                double salesAmount=0.00;
+                Integer Qty=0;
+                if (productItem.getItemQty()>0)
+                    Qty=productItem.getItemQty()-1;//decrease 1 qty from the current qty
+
+                productItem.setItemQty(Qty);//update the qty
+                salesAmount=Double.valueOf(Qty)*Double.valueOf(productItem.getPrice());//calculate sales amount
+
+                // update the holder and notify the adapter about change
+                holder.tvItemQty.setText(String.valueOf(Qty));
+                //holder.tvAmount.setText(String.format("%.2f", salesAmount));
+                notifyItemRangeChanged(position,getItemCount());
+
+                //update shared preferances
+                utility.setBusketProduct(productItem);
+
+                listener.onRecycleViewItemClick(position);
+            }
+        });
+
+        // Todo define plus button function---------------------
+        holder.btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // calculate qty and sales amount
+                double salesAmount=0.00;
+                Integer Qty=productItem.getItemQty()+1;//increase 1 qty with the current qty
+
+                //Stock Validation added
+//                if (Integer.parseInt(productItem.getDisplayQty())<Qty)
+//                    Qty=productItem.getQty();
+
+                productItem.setItemQty(Qty);//update the qty
+                //salesAmount=Double.valueOf(Qty)*Double.valueOf(productItem.getPrice());//calculate sales amount
+
+                // update the holder and notify the adapter about change
+                holder.tvItemQty.setText(String.valueOf(Qty));
+                //holder.tvAmount.setText(String.format("%.2f", salesAmount));
+                notifyItemRangeChanged(position,getItemCount());
+
+                //update shared preferances
+                utility.setBusketProduct(productItem);
+
+                listener.onRecycleViewItemClick(position);
+            }
+        });
     }
 
     @Override
@@ -69,7 +120,8 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvProductName, tvProductCode,tvUnit,tvPrice,tvItemQty,tvTotalAmount;
+        TextView tvProductName, tvProductCode,tvUnit,tvPrice,tvItemQty,tvItemQtyBelow,tvTotalAmount;
+        Button btnMinus,btnPlus;
         ImageView imageView;
 
         public MyViewHolder(final View itemView) {
@@ -81,6 +133,9 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
             imageView=itemView.findViewById(R.id.imageView);
             tvItemQty=itemView.findViewById(R.id.tvItemQty);
             tvTotalAmount = itemView.findViewById(R.id.tvTotalAmount);
+            tvItemQtyBelow=itemView.findViewById(R.id.tvItemQtyBelow);
+            btnMinus = itemView.findViewById(R.id.btnMinus);
+            btnPlus = itemView.findViewById(R.id.btnPlus);
         }
     }
 

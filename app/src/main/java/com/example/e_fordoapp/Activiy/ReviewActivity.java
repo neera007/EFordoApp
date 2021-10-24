@@ -132,7 +132,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
         adapter.setOnRecycleViewItemClickListener(new BasketAdapter.OnRecycleViewItemClickListener() {
             @Override
             public void onRecycleViewItemClick(int position) {
-
+                tvOrderAmount.setText("৳: "+String.valueOf(utility.getBusketAmount()));
             }
         });
 

@@ -22,14 +22,24 @@ tools:ignore="HardcodedText">
     app:layout_constraintTop_toTopOf="parent"
     tools:ignore="MissingConstraints" />
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recycleView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="horizontal"
-    tools:ignore="MissingConstraints"
-    app:layout_constraintTop_toBottomOf="@+id/tvActiviyName"
-    ></androidx.recyclerview.widget.RecyclerView>
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="30dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvActiviyName"-->
+<!--        tools:ignore="MissingConstraints">-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/tvActiviyName"
+            ></androidx.recyclerview.widget.RecyclerView>
+
+<!--    </androidx.core.widget.NestedScrollView>-->
+
 
 
 <!-- todo fixed Footer Copyright part -->

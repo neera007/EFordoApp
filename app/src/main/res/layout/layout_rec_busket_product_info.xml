@@ -170,6 +170,96 @@
         </LinearLayout>
 
         <!--todo 3rd layer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:weightSum="4"
+            android:layout_below="@+id/layoutProductInfo"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:visibility="invisible"
+                android:gravity="left"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvAmountTitle"
+                    style="@style/FontRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Tk: "
+                    android:textSize="16sp"
+                    android:textColor="@color/pColor300"/>
+                <TextView
+
+                    android:id="@+id/tvAmount"
+                    style="@style/FontRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="34,430.00"
+                    android:textColor="@color/pColor300"
+                    android:textSize="16sp"
+                    tools:ignore="DuplicateIds" />
+            </LinearLayout>
+
+            <!-- todo plus minus qty button -->
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+                <TextView
+                    android:id="@+id/tvQtyTitle"
+                    style="@style/FontRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Qty"
+                    android:paddingRight="12dp"
+                    android:paddingLeft="12dp"
+                    android:textColor="@color/darkColor900"
+                    android:textSize="14sp" />
+                <Button
+                    android:id="@+id/btnMinus"
+                    style="@style/FontRegular"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="-"
+                    android:textSize="30dp"
+                    android:background="@drawable/ic_btn_minus"/>
+
+                <TextView
+                    android:id="@+id/tvItemQtyBelow"
+                    style="@style/FontRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="14sp"
+                    android:textColor="@color/darkColor900"
+                    android:background="@drawable/shape_point_add_or_delete"/>
+                />
+                <Button
+                    android:id="@+id/btnPlus"
+                    style="@style/FontRegular"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="+"
+                    android:textSize="20dp"
+                    android:background="@drawable/ic_btn_plus"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--todo 3rd layer -->
         <View
             android:id="@+id/viweBorder"
             android:layout_marginTop="5dp"

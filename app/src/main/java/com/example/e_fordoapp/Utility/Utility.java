@@ -224,14 +224,14 @@ public class Utility {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
 
-        // Todo get current busket data
+        // todo get current busket data
         ArrayList<Product> busketProducts = getBusketProduct();
 
-        // Todo check this product already exist in the busket or not. if exists then qty will be increase
-
+        // todo check this product already exist in the basket or not if exists then qty will be increase
         for (int i = 0; i < busketProducts.size(); i++) {
             if (busketProducts.get(i).getItemCode().equals(product.getItemCode())) {
-                busketProducts.get(i).setItemQty(busketProducts.get(i).getItemQty() + 1);
+                //busketProducts.get(i).setItemQty(busketProducts.get(i).getItemQty() + 1);
+                busketProducts.get(i).setItemQty(product.getItemQty());
 
                 // Todo add data to Shared preferences
                 String json = gson.toJson(busketProducts);

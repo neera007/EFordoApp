@@ -173,6 +173,8 @@
                     style="@style/FontRegular"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:text="-"
                     android:textSize="30dp"
                     android:background="@drawable/ic_btn_minus"/>
@@ -195,6 +197,8 @@
                     style="@style/FontRegular"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:text="+"
                     android:textSize="20dp"
                     android:background="@drawable/ic_btn_plus"/>

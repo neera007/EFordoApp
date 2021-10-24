@@ -21,8 +21,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
-<color name="colorPrimary">#FC8458</color>
-<color name="colorPrimaryDark">#FF5100</color>
+<color name="colorPrimary">#ffd633</color>
+<color name="colorPrimaryDark">#ffd633</color>
 <color name="colorAccent">#666666</color>
 
 <color name="background_black">#202126</color>
