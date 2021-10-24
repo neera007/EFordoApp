@@ -15,11 +15,20 @@ public class ApiConfig {
 //    Setting setting=utility.getSetting();
 //    String BASE_URL_NEW="http://"+setting.getBaseIP()+"/";
 
+    //todo ******* static call from Utility ************
+//    static Utility utility=new Utility();
+//    static Setting setting=utility.getSetting();
+//    static String BASE_URL_NEW="http://"+setting.getBaseIP()+"/";
+    //todo *****************
+
     // todo local
     //private static final String BASE_URL = "http://172.29.19.17:9090/api/";
     // todo live
     //private static final String BASE_URL = "http://172.29.19.17:9090/api/";
     private static final String BASE_URL = "http://103.58.95.39:801/";
+
+
+
 
     public static Retrofit getApiClient() {
         if (retrofit == null) {
@@ -29,7 +38,7 @@ public class ApiConfig {
                     .writeTimeout(15, TimeUnit.SECONDS)
                     .build();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(BASE_URL) //todo BASE_URL_NEW
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
