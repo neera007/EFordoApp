@@ -69,7 +69,7 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         if(view == btnNext) {
-            startActivity(new Intent(getApplicationContext(), ReviewActivity.class));
+            startActivity(new Intent(getApplicationContext(), BasketActivity.class));
         }
         else if(view == btnBack) {
             startActivity(new Intent(getApplicationContext(), CategoryActivity.class));

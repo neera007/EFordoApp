@@ -18,7 +18,7 @@ import com.example.e_fordoapp.Utility.Utility;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvoiceActivity extends AppCompatActivity implements View.OnClickListener{
+public class OrderCheckoutActivity extends AppCompatActivity implements View.OnClickListener{
     Utility utility;
     private TextView tvSummaryTitle,tvOrderAmount;
     private RecyclerView recycleView;
@@ -26,14 +26,10 @@ public class InvoiceActivity extends AppCompatActivity implements View.OnClickLi
     List<Product> busketItemList = new ArrayList<>();
     String orderNumber;
 
-/*    private int portType = 0;
-    private String logicalName = "SPP-R310";
-    private static BixolonPrinter bxlPrinter = null;*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_invoice);
+        setContentView(R.layout.activity_order_checkout);
 
         utility = new Utility(this);
         btnGoToHome = this.findViewById(R.id.btnGoToHome);
@@ -51,13 +47,12 @@ public class InvoiceActivity extends AppCompatActivity implements View.OnClickLi
         btnPrintInvoice.setOnClickListener(this);
 
         loadBasketData();
-
     }
 
     @Override
     public void onClick(View view) {
         if(view == btnGoToHome) {
-            Intent intent = new Intent(InvoiceActivity.this, DashboardActivity.class);
+            Intent intent = new Intent(OrderCheckoutActivity.this, DashboardActivity.class);
             startActivity(intent);
             finish();
         }
@@ -78,7 +73,7 @@ public class InvoiceActivity extends AppCompatActivity implements View.OnClickLi
         //todo creating recyclerview adapter
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
-        BasketAdapter adapter = new BasketAdapter(InvoiceActivity.this, busketItemList,false);
+        BasketAdapter adapter = new BasketAdapter(OrderCheckoutActivity.this, busketItemList,false);
         recycleView.setAdapter(adapter);
 
         //todo load total amount
@@ -95,6 +90,4 @@ public class InvoiceActivity extends AppCompatActivity implements View.OnClickLi
         utility.clearBusket();
         utility.clearCustomer();
     }
-
-
 }

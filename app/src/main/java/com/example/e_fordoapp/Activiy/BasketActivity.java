@@ -91,8 +91,9 @@ public class BasketActivity extends AppCompatActivity implements View.OnClickLis
                     if (success.equals("true")) {
                         // if saved--------------------------------------
                         final String orderNumber = response.body().getOrderNumber();
+                        //utility.message("Order Saved");
                         //todo after saved go to success page
-                        Intent intent = new Intent(BasketActivity.this, InvoiceActivity.class);
+                        Intent intent = new Intent(BasketActivity.this, OrderCheckoutActivity.class);
                         intent.putExtra("extra_orderNumber", orderNumber);
                         startActivity(intent);
                         finish();
