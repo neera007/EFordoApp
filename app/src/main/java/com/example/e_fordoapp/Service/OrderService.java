@@ -21,7 +21,8 @@ public interface OrderService {
     //Get order history
     @GET("api/order/orderHistory")
     Call<List<Order>> getOrderHistory(@Query("userId") String userId,
-                                                   @Query("password") String password);
+                                      @Query("password") String password,
+                                      @Query("orderNumber") String orderNumber);
     //Get order history
     @GET("api/order/orderDetails")
     Call<List<Product>> getorderDetails(@Query("userId") String userId,

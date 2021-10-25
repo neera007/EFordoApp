@@ -46,18 +46,20 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
 
 
         //todo ************ OnclickListener ***********
-        imgBtnReview.setOnClickListener((View.OnClickListener) this);
-        cardVieNewReq.setOnClickListener((View.OnClickListener) this);
-        cardViePreviousReq.setOnClickListener((View.OnClickListener) this);
-        cardVieSettings.setOnClickListener((View.OnClickListener) this);
-        cardVieLogout.setOnClickListener((View.OnClickListener) this);
+        imgBtnReview.setOnClickListener(this);
+        cardVieNewReq.setOnClickListener(this);
+        cardViePreviousReq.setOnClickListener(this);
+        cardVieSettings.setOnClickListener(this);
+        cardVieLogout.setOnClickListener(this);
 
         //show user id & login time
         //todo load default data
+        basketList=utility.getBusketProduct();
+
         tvUserId.setText("Login By : " + utility.getUserID());
         String currentTime = new SimpleDateFormat("hh:mm a", Locale.getDefault()).format(new Date());
         tvLoginTime.setText("Login Time: "+currentTime);
-        basketList=utility.getBusketProduct();
+
         if (basketList.size()==0)
             tvReviewPushNotification.setText("0");
         else
@@ -70,7 +72,7 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
             startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
         }
         else if (view == cardViePreviousReq ) {
-            startActivity(new Intent(getApplicationContext(), RequisitionListActivity.class));
+            startActivity(new Intent(getApplicationContext(), OrderListActivity.class));
         }
         else if (view == cardVieSettings ) {
             startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
@@ -82,7 +84,7 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
             finish();
         }
         else if (view == imgBtnReview ) {
-            startActivity(new Intent(getApplicationContext(),ReviewActivity.class));
+            startActivity(new Intent(getApplicationContext(),BasketActivity.class));
         }
     }
 }

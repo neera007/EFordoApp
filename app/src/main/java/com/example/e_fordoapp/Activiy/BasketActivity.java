@@ -9,18 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.e_fordoapp.Adapter.BasketAdapter;
-import com.example.e_fordoapp.Adapter.ProductInfoAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
 import com.example.e_fordoapp.Model.Customer;
 import com.example.e_fordoapp.Model.Order;
 import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.R;
-import com.example.e_fordoapp.Service.CustomerService;
 import com.example.e_fordoapp.Service.OrderService;
-import com.example.e_fordoapp.Service.ProductService;
 import com.example.e_fordoapp.Utility.Utility;
 
 import java.util.ArrayList;
@@ -30,8 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ReviewActivity extends AppCompatActivity implements View.OnClickListener{
-
+public class BasketActivity extends AppCompatActivity implements View.OnClickListener{
     private OrderService orderService;
     private RecyclerView recycleView;
     TextView tvOrderAmount;
@@ -42,7 +37,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review);
+        setContentView(R.layout.activity_basket);
         utility = new Utility(this);
         // todo comments------------------------------
         recycleView = findViewById(R.id.recycleView);
@@ -55,6 +50,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
 
         loadBasketProduct();
     }
+
     @Override
     public void onClick(View view) {
         if (view==btnBack)
@@ -96,7 +92,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
                         // if saved--------------------------------------
                         final String orderNumber = response.body().getOrderNumber();
                         //todo after saved go to success page
-                        Intent intent = new Intent(ReviewActivity.this, InvoiceActivity.class);
+                        Intent intent = new Intent(BasketActivity.this, InvoiceActivity.class);
                         intent.putExtra("extra_orderNumber", orderNumber);
                         startActivity(intent);
                         finish();
@@ -120,7 +116,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
         productList=utility.getBusketProduct();
 
         //todo creating recyclerview adapter
-        BasketAdapter adapter = new BasketAdapter(ReviewActivity.this, productList,true);
+        BasketAdapter adapter = new BasketAdapter(BasketActivity.this, productList,true);
 
         //todo setting adapter to recyclerview
         recycleView.setAdapter(adapter);

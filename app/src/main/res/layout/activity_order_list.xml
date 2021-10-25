@@ -5,9 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="#e4e4e4"
-tools:context=".Activiy.RequisitionListActivity"
-tools:ignore="HardcodedText">
-<!--test-->
+tools:context=".Activiy.OrderListActivity">
 <View
     android:id="@+id/view"
     android:layout_width="match_parent"
@@ -91,7 +89,7 @@ tools:ignore="HardcodedText">
                 app:layout_constraintTop_toBottomOf="@+id/tvSetup">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTvUserSearchByPIN"
+                    android:id="@+id/editTvOrderNumber"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
@@ -111,7 +109,7 @@ tools:ignore="HardcodedText">
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnUserSearchByPIN"
+                android:id="@+id/btnSearchOrderNumber"
                 style="@style/FontBold"
                 android:layout_width="42dp"
                 android:layout_height="48dp"
@@ -138,12 +136,39 @@ tools:ignore="HardcodedText">
 
 
 
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBaseBackground"
+                    android:paddingLeft="20dp"
+                    android:text="Back"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
 
 <!-- todo fixed Footer Copyright part -->
+
+
 <RelativeLayout
     android:id="@+id/last_button_container"
     android:layout_width="match_parent"
@@ -169,8 +194,10 @@ tools:ignore="HardcodedText">
         android:textColor="@color/black"
         android:textSize="14sp" />
 
-    
+
 </RelativeLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

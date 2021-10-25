@@ -45,8 +45,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Order Saved Successfully "
-                    android:textColor="@color/lightColor900"
+                    android:text="Review"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -180,7 +180,7 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/btnGoToHome"
+                        android:id="@+id/btnBack"
                         style="@style/FontBold"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
@@ -191,7 +191,7 @@
                         android:background="@drawable/button_background"
                         android:gravity="center_horizontal"
                         android:paddingTop="10dp"
-                        android:text="GO TO HOME"
+                        android:text="BACK"
                         android:textAlignment="center"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
@@ -204,7 +204,7 @@
                     android:layout_weight="1">
 
                     <Button
-                        android:id="@+id/btnPrintInvoice"
+                        android:id="@+id/btnNext"
                         style="@style/FontBold"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
@@ -215,7 +215,7 @@
                         android:background="@drawable/button_background"
                         android:gravity="center_horizontal"
                         android:paddingTop="10dp"
-                        android:text="PRINT INVOICE"
+                        android:text="NEXT"
                         android:textAlignment="center"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
