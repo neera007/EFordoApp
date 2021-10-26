@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute"
         tools:targetApi="n">
+        <activity android:name=".Activiy.OrderCheckoutActivity"></activity>
+        <activity android:name=".Activiy.BasketActivity" />
+        <activity android:name=".Activiy.OrderListActivity" />
         <activity
             android:name=".Activiy.RequisitionDetailsActivity"
             android:exported="true" />

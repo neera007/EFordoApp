@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -99,6 +100,13 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
                 return;
             }
 
+            Customer customer=utility.getCustomer();
+            if (Integer.valueOf(customer.getLimit())<1)
+            {
+                utility.message("Credit limit is over");
+                return;
+            }
+
             List<Product> productItemList= new ArrayList<>();
             productItemList=utility.getBusketProduct();
             if (productItemList.size()>0)
@@ -123,6 +131,8 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             }
             else
                 startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
+
+
 
         }
         else if (view == btnUserSearchByPIN ) {

@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.e_fordoapp.Adapter.BasketAdapter;
+import com.example.e_fordoapp.Model.Order;
 import com.example.e_fordoapp.Model.Product;
+import com.example.e_fordoapp.PrinterControl.BixolonPrinter;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Utility.Utility;
 
@@ -25,6 +27,10 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
     private Button btnGoToHome,btnPrintInvoice;
     List<Product> busketItemList = new ArrayList<>();
     String orderNumber;
+
+/*    private int portType = 0;
+    private String logicalName = "SPP-R310";
+    private static BixolonPrinter bxlPrinter = null;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +51,12 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
 
         btnGoToHome.setOnClickListener(this);
         btnPrintInvoice.setOnClickListener(this);
-
         loadBasketData();
+
+        //bxlPrinter = new BixolonPrinter(getApplicationContext());
+        //getPrinterInstance().printerOpen(portType, logicalName, "", true);
+
+
     }
 
     @Override
@@ -57,9 +67,17 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
             finish();
         }
         else if(view == btnPrintInvoice) {
-            utility.message("Connect the printer");
+            /*getPrinterInstance().printerOpen(portType, logicalName, "", true);
+            
+            Order order = new Order();
+            printOrder(order);*/
         }
     }
+
+/*    public static BixolonPrinter getPrinterInstance()
+    {
+        return bxlPrinter;
+    }*/
 
     private void loadBasketData() {
         //todo get & set invoice number
@@ -90,4 +108,26 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
         utility.clearBusket();
         utility.clearCustomer();
     }
+
+/*    private void printOrder(Order order) {
+        String memo_data="";
+        memo_data="--e-Fordo--"+"\n";
+        memo_data=memo_data+"Order Number # ";//+tokenItem.getToken()+"\n";
+        memo_data=memo_data+"Outlet : ";//+utility.getShopName()+"\n";
+       *//* memo_data=memo_data+tokenItem.getTokenDateTime()+"\n\n";
+        memo_data=memo_data+tokenItem.getText1()+"\n";
+        memo_data=memo_data+tokenItem.getText2()+"\n";*//*
+        getPrinterInstance().beginTransactionPrint();
+        getPrinterInstance().printText(memo_data, BixolonPrinter.ALIGNMENT_CENTER, 0, 0);
+        //getPrinterInstance().printBarcode(tokenItem.getToken(), BixolonPrinter.BARCODE_TYPE_QRCODE, 8, 8, BixolonPrinter.ALIGNMENT_CENTER, BixolonPrinter.BARCODE_HRI_NONE);
+        getPrinterInstance().printText("\n",BixolonPrinter.ALIGNMENT_CENTER, 0, 0);
+        getPrinterInstance().printText("Note: The Queue Number will be valid\n",BixolonPrinter.ALIGNMENT_CENTER, 0, 0);
+        //getPrinterInstance().printText("till "+tokenItem.getNote(),BixolonPrinter.ALIGNMENT_CENTER, 0, 0);
+        getPrinterInstance().printText("\n",BixolonPrinter.ALIGNMENT_CENTER, 0, 0);
+        getPrinterInstance().printText("\n----------------------------------\n\n",BixolonPrinter.ALIGNMENT_CENTER, 0, 0);
+        getPrinterInstance().cutPaper();
+        getPrinterInstance().endTransactionPrint();
+        getPrinterInstance().printerClose();
+
+    }*/
 }

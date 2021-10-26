@@ -82,11 +82,13 @@ public class BasketActivity extends AppCompatActivity implements View.OnClickLis
     private void saveOrder(Order order) {
         orderService = ApiConfig.getApiClient().create(OrderService.class);
         Call<Order> call = orderService.saveInvoice(order);
+        utility.showLoading();
         call.enqueue(new Callback<Order>() {
             @Override
             public void onResponse(Call<Order> call, Response<Order> response) {
                 if (response.isSuccessful())
                 {
+                    utility.hideLoading();
                     String success= response.body().getSuccess();
                     if (success.equals("true")) {
                         // if saved--------------------------------------
@@ -100,12 +102,14 @@ public class BasketActivity extends AppCompatActivity implements View.OnClickLis
                     }
                     else {
                         // if not saved-----------------------------------------
+                        utility.hideLoading();
                         utility.message(response.body().getResponseText());
                     }
                 }
             }
             @Override
             public void onFailure(Call<Order> call, Throwable t) {
+                utility.hideLoading();
                 utility.message("Transaction error."+t.getMessage());
             }
         });
