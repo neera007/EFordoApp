@@ -27,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 >
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,8 +45,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Order Details"
-                    android:textColor="@color/lightColor900"
+                    android:text="Review"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -164,8 +165,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,8 +174,10 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/btnBack"
@@ -191,6 +192,30 @@
                         android:gravity="center_horizontal"
                         android:paddingTop="10dp"
                         android:text="BACK"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/btnNext"
+                        style="@style/FontBold"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/button_background"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="10dp"
+                        android:text="NEXT"
                         android:textAlignment="center"
                         android:textAllCaps="false"
                         android:textColor="@color/black"

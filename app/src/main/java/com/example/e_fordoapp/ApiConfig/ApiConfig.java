@@ -11,24 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiConfig {
     private static Retrofit retrofit;
-//    Utility utility=new Utility();
-//    Setting setting=utility.getSetting();
-//    String BASE_URL_NEW="http://"+setting.getBaseIP()+"/";
-
-    //todo ******* static call from Utility ************
-//    static Utility utility=new Utility();
-//    static Setting setting=utility.getSetting();
-//    static String BASE_URL_NEW="http://"+setting.getBaseIP()+"/";
     //todo *****************
-
-    // todo local
-    //private static final String BASE_URL = "http://172.29.19.17:9090/api/";
-    // todo live
-    //private static final String BASE_URL = "http://172.29.19.17:9090/api/";
-    private static final String BASE_URL = "http://103.58.95.39:801/";
-
-
-
+    public static String BASE_URL="";// = "";//http://103.58.95.39:801/";
 
     public static Retrofit getApiClient() {
         if (retrofit == null) {

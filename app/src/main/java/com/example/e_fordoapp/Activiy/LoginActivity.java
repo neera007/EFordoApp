@@ -87,24 +87,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view == btnLogin ) {
+
             Setting settingInfo=utility.getSetting();
-            //todo validation check
-            if(tvUserId.getText().toString().length() == 0){
-                tvUserId.setError("User ID Required!");
-                return;
-            }
-            if(tvPassword.getText().toString().length() == 0){
-                tvPassword.setError("Password Required!");
-                return;
-            }
-            if (settingInfo==null)
+            ApiConfig.BASE_URL ="http://"+settingInfo.getBaseIP()+"/" ;//"http://103.58.95.39:801/";
+
+            if(settingInfo.getBaseIP()==null || settingInfo.getBaseIP().length()<6)
             {
-                utility.message("Setup connection required!");
-                return;
+                utility.message("Connection setup required.");
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
             }
-            userID = tvUserId.getText().toString();
-            password = utility.md5(tvPassword.getText().toString());
-            getUserInfo(userID,password);
+            else {
+                //todo validation check
+                if (tvUserId.getText().toString().length() == 0) {
+                    tvUserId.setError("User ID Required!");
+                    return;
+                }
+                if (tvPassword.getText().toString().length() == 0) {
+                    tvPassword.setError("Password Required!");
+                    return;
+                }
+                if (settingInfo == null) {
+                    utility.message("Setup connection required!");
+                    return;
+                }
+                userID = tvUserId.getText().toString();
+                password = utility.md5(tvPassword.getText().toString());
+                getUserInfo(userID, password);
+            }
         }
         else if (view == btnSettings ) {
               startActivity(new Intent(getApplicationContext(), SettingsActivity.class));

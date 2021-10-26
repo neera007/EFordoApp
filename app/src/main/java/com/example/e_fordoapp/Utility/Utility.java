@@ -245,7 +245,7 @@ public class Utility {
 
         // Todo if not exists then add this product in the busket
         if (!isUpdate) {
-            product.setItemQty(1);
+            //product.setItemQty(1);
             busketProducts.add(product);
 
             // Todo add data to Shared preferences

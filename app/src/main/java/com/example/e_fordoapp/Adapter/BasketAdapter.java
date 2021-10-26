@@ -102,16 +102,17 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
                 double salesAmount=0.00;
                 Integer Qty=productItem.getItemQty()+1;//increase 1 qty with the current qty
 
-                //Stock Validation added
-//                if (Integer.parseInt(productItem.getDisplayQty())<Qty)
-//                    Qty=productItem.getQty();
+                if(Qty>Integer.valueOf(productItem.getMaxQty()))
+                {
+                    utility.message("Maximum Order Qty: "+productItem.getMaxQty());
+                    return;
+                }
 
                 productItem.setItemQty(Qty);//update the qty
-                //salesAmount=Double.valueOf(Qty)*Double.valueOf(productItem.getPrice());//calculate sales amount
-
-                // update the holder and notify the adapter about change
                 holder.tvItemQty.setText(String.valueOf(Qty));
+
                 //holder.tvAmount.setText(String.format("%.2f", salesAmount));
+
                 notifyItemRangeChanged(position,getItemCount());
 
                 //update shared preferances
