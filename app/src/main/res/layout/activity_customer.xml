@@ -92,21 +92,37 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
+
+
             <LinearLayout
                 android:id="@+id/textInputLayout_userid"
                 app:layout_constraintTop_toBottomOf="@+id/tvSearch"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
                 android:orientation="horizontal">
-                <com.google.android.material.textfield.TextInputLayout
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/custom_input"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:text=""
+                    android:paddingLeft="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+               <!-- <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
                     app:hintEnabled="false"
+                    android:visibility="gone"
                     app:layout_constraintRight_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
@@ -131,7 +147,7 @@
                         android:topLeftRadius="10dp"
                         android:topRightRadius="10dp"
                         android:layout_gravity="center_horizontal" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>-->
                 <Button
                     android:id="@+id/btnUserSearchByPIN"
                     style="@style/FontBold"
@@ -235,11 +251,12 @@
                     android:id="@+id/editTvUserInfo"
                     style="@style/FontRegular"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="300dp"
                     android:background="@drawable/custom_input"
                     android:bottomLeftRadius="10dp"
                     android:bottomRightRadius="10dp"
                     android:drawablePadding="8dp"
+                    android:layout_marginBottom="20dp"
                     android:hint="Details"
                     android:inputType="text|textMultiLine"
                     android:paddingLeft="16dp"
@@ -247,91 +264,14 @@
                     android:textColor="@color/darkColor900"
                     android:textColorHint="@color/dColor400"
                     android:textSize="14sp"
+                    android:gravity="top"
+                    android:paddingTop="5dp"
                     android:topLeftRadius="10dp"
                     android:topRightRadius="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <LinearLayout
-                android:id="@+id/topButtonLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingTop="20dp"
-                app:layout_constraintRight_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGetUserInfo">
 
-
-                <Button
-                    android:id="@+id/btnBack"
-                    style="@style/FontBold"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_below="@+id/chkRememberMe"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_background"
-                    android:gravity="center_horizontal"
-                    android:paddingTop="10dp"
-                    android:text="Back"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnReset"
-                    style="@style/FontBold"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_below="@+id/chkRememberMe"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_background"
-                    android:gravity="center_horizontal"
-                    android:paddingTop="10dp"
-                    android:text="Clear All"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnNext"
-                    style="@style/FontBold"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_below="@+id/chkRememberMe"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:background="@drawable/button_background"
-                    android:gravity="center_horizontal"
-                    android:paddingTop="10dp"
-                    android:text="Next"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
 
 
@@ -354,16 +294,87 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/tvFooterVersion"
+        <LinearLayout
+            android:id="@+id/topButtonLayout"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:visibility="gone"
-            android:text="@string/copy_right"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="20dp"
+            android:background="@color/white"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <Button
+                android:id="@+id/btnBack"
+                style="@style/FontBold"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/chkRememberMe"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Back"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnReset"
+                style="@style/FontBold"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/chkRememberMe"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Clear All"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/FontBold"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/chkRememberMe"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:background="@drawable/button_background"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Next"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

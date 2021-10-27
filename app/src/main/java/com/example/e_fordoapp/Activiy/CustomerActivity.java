@@ -2,12 +2,15 @@ package com.example.e_fordoapp.Activiy;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,12 +19,14 @@ import android.widget.Toast;
 import com.example.e_fordoapp.Adapter.ProductCategoryAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
 import com.example.e_fordoapp.Model.Customer;
+import com.example.e_fordoapp.Model.CustomerAutoComplete;
 import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.ProductCategory;
 import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Service.CustomerService;
 import com.example.e_fordoapp.Service.LoginService;
+import com.example.e_fordoapp.Service.ProductCategoryService;
 import com.example.e_fordoapp.Utility.Utility;
 
 import java.util.ArrayList;
@@ -34,6 +39,7 @@ import retrofit2.Response;
 public class CustomerActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnBack,btnReset,btnNext,btnUserSearchByPIN;
     private EditText editTvUserSearchByPIN,editTvUserPIN,editTvUserName,editTvUserInfo;
+    private AutoCompleteTextView autoCompleteTextView;
     private CustomerService customerService;
     Utility utility;
 
@@ -47,8 +53,9 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         btnBack = findViewById(R.id.btnBack);
         btnReset = findViewById(R.id.btnReset);
         btnNext = findViewById(R.id.btnNext);
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
-        editTvUserSearchByPIN = findViewById(R.id.editTvUserSearchByPIN);
+//        editTvUserSearchByPIN = findViewById(R.id.editTvUserSearchByPIN);
         editTvUserPIN = findViewById(R.id.editTvUserPIN);
         editTvUserName = findViewById(R.id.editTvUserName);
         editTvUserInfo = findViewById(R.id.editTvUserInfo); //textarea
@@ -64,21 +71,10 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         btnReset.setOnClickListener(this);
         btnNext.setOnClickListener(this);
 
+        //editTvUserSearchByPIN.setText("STD900000");
         editTvUserPIN.requestFocus();
-        //utility.clearCustomer();
-        //loadCustomerFromSession();
+        loadCustomerAutoCompleteList();
     }
-
-    /*private void loadCustomerFromSession() {
-        Customer customer= new Customer();
-        customer=utility.getCustomer();
-        if (customer!=null)
-        {
-            editTvUserPIN.setText(customer.getAccountNumber());
-            editTvUserName.setText(customer.getAccountName());
-            editTvUserInfo.setText(customer.getDescription());
-        }
-    }*/
 
     @Override
     public void onClick(View view) {
@@ -86,7 +82,7 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
         }
         else if (view == btnReset ) {
-            editTvUserSearchByPIN.setText("");
+            autoCompleteTextView.setText("");
             editTvUserPIN.setText("");
             editTvUserName.setText("");
             editTvUserInfo.setText("");
@@ -106,6 +102,12 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
 //                utility.message("Credit limit is over");
 //                return;
 //            }
+
+            if (Integer.valueOf(customer.getInvCount())<1)
+            {
+                utility.message("Invoice limit is over");
+                return;
+            }
 
             List<Product> productItemList= new ArrayList<>();
             productItemList=utility.getBusketProduct();
@@ -132,16 +134,14 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             else
                 startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
 
-
-
         }
         else if (view == btnUserSearchByPIN ) {
             // todo validation check
-            if(editTvUserSearchByPIN.getText().toString().length() == 0){
+            if(autoCompleteTextView.getText().toString().length() == 0){
                 utility.message("Please enter PIN");
                 return;
             }
-            loadCustomerInfo(editTvUserSearchByPIN.getText().toString());
+            loadCustomerInfo(autoCompleteTextView.getText().toString());
         }
     }
 
@@ -164,10 +164,11 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
                     }
                     //set data
                     String invoiceLimit="";
-                    if (customer.getInvCount().equals("0")==false)
+                    /*if (customer.getInvCount().equals("0")==false)
                     {
                         invoiceLimit="Invoice Limit :"+customer.getInvCount();
-                    }
+                    }*/
+                    invoiceLimit="Invoice Limit :"+customer.getInvCount();
                     editTvUserPIN.setText(customer.getAccountNumber());
                     editTvUserName.setText(customer.getAccountName());
                     editTvUserInfo.setText("Credit Limit: "+customer.getLimit()+"\n"
@@ -184,5 +185,11 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(CustomerActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void loadCustomerAutoCompleteList(){
+            ArrayAdapter<CustomerAutoComplete> adapter = new ArrayAdapter<CustomerAutoComplete>(CustomerActivity.this, android.R.layout.simple_dropdown_item_1line, Utility.allCustomerList);
+            //autoCompleteTextView.setThreshold(4);
+            autoCompleteTextView.setAdapter(adapter);
     }
 }
