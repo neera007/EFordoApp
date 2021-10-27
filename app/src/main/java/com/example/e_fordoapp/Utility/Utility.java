@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.e_fordoapp.Model.Customer;
+import com.example.e_fordoapp.Model.CustomerAutoComplete;
 import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.Setting;
 import com.example.e_fordoapp.Model.UserInfo;
@@ -29,6 +30,7 @@ public class Utility {
     Context context;
     SharedPreferences sharedPreferences;
     ProgressDialog progress;
+    public static List<CustomerAutoComplete> allCustomerList= new ArrayList<>();
 
     public Utility() {
         sharedPreferences = context.getSharedPreferences("CurrentUser", Context.MODE_PRIVATE);

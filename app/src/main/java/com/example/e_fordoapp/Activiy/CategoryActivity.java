@@ -7,13 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_fordoapp.Adapter.ProductCategoryAdapter;
-import com.example.e_fordoapp.Adapter.ProductInfoAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
 import com.example.e_fordoapp.Model.ProductCategory;
 import com.example.e_fordoapp.R;
@@ -36,6 +33,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
     private ProductCategoryService productCategoryService;
     String categoryCode;
     Utility utility;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +41,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         utility = new Utility(this);
         recycleView = findViewById(R.id.recycleView);
         btnBack = findViewById(R.id.btnBack);
+
 
         btnBack.setOnClickListener(this);
         loadProductList(utility.getUserID(),utility.getPassword());
