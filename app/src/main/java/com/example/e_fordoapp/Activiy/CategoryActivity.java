@@ -44,6 +44,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 
 
         btnBack.setOnClickListener(this);
+        // todo load product list
         loadProductList(utility.getUserID(),utility.getPassword());
     }
 

@@ -1,9 +1,11 @@
 package com.example.e_fordoapp.Activiy;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -59,23 +61,39 @@ public class BasketActivity extends AppCompatActivity implements View.OnClickLis
         }
         else if(view == btnNext) {
             // Todo Save Order
-            Order order=new Order();
-            Customer customer=utility.getCustomer();
-            List<Product> basketProduct=utility.getBusketProduct();
 
-            if (basketProduct.size()==0){
-                utility.message("No data found for save");
-                return;
-            }
-            if (customer==null){
-                utility.message("No customer found for save");
-                return;
-            }
-            order.setAccountID(customer.getAccountID());
-            order.setUserID(utility.getUserID());
-            order.setPassword(utility.getPassword());
-            order.setOrderDetailInfos(utility.getBusketProduct());
-            saveOrder(order);
+            // todo confirmation message
+            String message="Do you want to SAVE the order?";
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which) {
+                        case DialogInterface.BUTTON_POSITIVE: //Yes button clicked
+                            Order order=new Order();
+                            Customer customer=utility.getCustomer();
+                            List<Product> basketProduct=utility.getBusketProduct();
+                            if (basketProduct.size()==0){
+                                utility.message("No data found for save");
+                                return;
+                            }
+                            if (customer==null){
+                                utility.message("No customer found for save");
+                                return;
+                            }
+                            order.setAccountID(customer.getAccountID());
+                            order.setUserID(utility.getUserID());
+                            order.setPassword(utility.getPassword());
+                            order.setOrderDetailInfos(utility.getBusketProduct());
+                            saveOrder(order);
+                            break;
+                    }
+                }
+            };
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.app_name)
+                    .setIcon(R.drawable.ic_message_title)
+                    .setMessage(message).setPositiveButton("Yes", dialogClickListener)
+                    .setNegativeButton("No", dialogClickListener).show();
         }
     }
 
