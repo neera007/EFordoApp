@@ -101,11 +101,11 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             }
 
             Customer customer=utility.getCustomer();
-            if (Integer.valueOf(customer.getLimit())<1)
-            {
-                utility.message("Credit limit is over");
-                return;
-            }
+//            if (Integer.valueOf(customer.getLimit())<1)
+//            {
+//                utility.message("Credit limit is over");
+//                return;
+//            }
 
             List<Product> productItemList= new ArrayList<>();
             productItemList=utility.getBusketProduct();

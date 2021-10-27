@@ -169,7 +169,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="5dp"
                 android:weightSum="2">
 
                 <LinearLayout
@@ -181,21 +180,14 @@
 
                     <Button
                         android:id="@+id/btnGoToHome"
-                        style="@style/FontBold"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:background="@drawable/button_background"
-                        android:gravity="center_horizontal"
-                        android:paddingTop="10dp"
-                        android:text="GO TO HOME"
-                        android:textAlignment="center"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightYellow"
+                        android:paddingLeft="20dp"
+                        android:text="Go to Home"
+                        android:textColor="@color/darkColor900"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -205,21 +197,14 @@
 
                     <Button
                         android:id="@+id/btnPrintInvoice"
-                        style="@style/FontBold"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:background="@drawable/button_background"
-                        android:gravity="center_horizontal"
-                        android:paddingTop="10dp"
-                        android:text="PRINT INVOICE"
-                        android:textAlignment="center"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorBaseBackground"
+                        android:paddingLeft="20dp"
+                        android:text="Print Invoice"
+                        android:textColor="@color/darkColor900"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 

@@ -32,8 +32,9 @@ import jpos.events.OutputCompleteListener;
 import jpos.events.StatusUpdateEvent;
 import jpos.events.StatusUpdateListener;
 
-//import android.support.v4.app.Fragment;
 
+
+import android.content.Context;
 public class BixolonPrinter implements ErrorListener, OutputCompleteListener, StatusUpdateListener, DirectIOListener, DataListener {
     // ------------------- alignment ------------------- //
     public static int ALIGNMENT_LEFT = 1;
@@ -153,13 +154,13 @@ public class BixolonPrinter implements ErrorListener, OutputCompleteListener, St
                 posPrinter.open(logicalName);
                 posPrinter.claim(5000 * 2);
                 posPrinter.setDeviceEnabled(true);
-               // posPrinter.setAsyncMode(isAsyncMode);
+                // posPrinter.setAsyncMode(isAsyncMode);
 
                 mPortType = portType;
                 mAddress = address;
             } catch (JposException e) {
                 e.printStackTrace();
-                /*try {
+               /* try {
                     posPrinter.close();
                 } catch (JposException e1) {
                     e1.printStackTrace();
