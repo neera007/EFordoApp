@@ -251,7 +251,7 @@
                     android:id="@+id/editTvUserInfo"
                     style="@style/FontRegular"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="180dp"
                     android:background="@drawable/custom_input"
                     android:bottomLeftRadius="10dp"
                     android:bottomRightRadius="10dp"

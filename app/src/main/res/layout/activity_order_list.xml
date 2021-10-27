@@ -80,6 +80,7 @@ tools:context=".Activiy.OrderListActivity">
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_input"
                 app:hintEnabled="false"
                 app:layout_constraintRight_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
