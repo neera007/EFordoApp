@@ -57,7 +57,8 @@ public class BasketActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if (view==btnBack)
         {
-            super.onBackPressed();
+          //  super.onBackPressed();
+            startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
         }
         else if(view == btnNext) {
             // Todo Save Order

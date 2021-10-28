@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.example.e_fordoapp.Model.BluetoothConn;
 import com.example.e_fordoapp.Model.Customer;
 import com.example.e_fordoapp.Model.CustomerAutoComplete;
 import com.example.e_fordoapp.Model.Product;
@@ -309,5 +310,55 @@ public class Utility {
 
     }
 
+
+    //todo ************* Bluetooth Printer ******
+//    public void setPairedLogicalName(BluetoothConn bluetoothConn) {
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        Gson gson = new Gson();
+//
+//        // Todo add data to Shared preferences
+//        String json = gson.toJson(bluetoothConn);
+//        editor.putString("name", json);
+//        editor.commit();
+//    }
+    public void setBluetoothConn(BluetoothConn bluetoothConn)
+    {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        // Todo add data to Shared preferences
+        String json = gson.toJson(bluetoothConn);
+        editor.putString("bluetoothConn", json);
+        editor.commit();
+    }
+    public BluetoothConn getBluetoothConn() {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("bluetoothConn", null);
+        Type type = new TypeToken<BluetoothConn>(){}.getType();
+        BluetoothConn bluetoothConn=gson.fromJson(json, type);
+        return bluetoothConn;
+    }
+//    public String getPairedLogicalName()
+//    {
+//        Gson gson = new Gson();
+//        String json = sharedPreferences.getString("bluetoothConnInfo", null);
+//        if (json == null)
+//            return "";
+//        Type type = new TypeToken<BluetoothConn>(){}.getType();
+//        BluetoothConn bluetoothConnInfo=gson.fromJson(json, type);
+//        return bluetoothConnInfo.getLogicalName();
+//    }
+//    public String getPairedAddress()
+//    {
+//        Gson gson = new Gson();
+//        String json = sharedPreferences.getString("bluetoothConnInfo", null);
+//        if (json == null)
+//            return "";
+//        Type type = new TypeToken<BluetoothConn>(){}.getType();
+//        BluetoothConn bluetoothConnInfo=gson.fromJson(json, type);
+//        return bluetoothConnInfo.getAddress();
+//    }
+
+
+    //todo ************************
 }
 

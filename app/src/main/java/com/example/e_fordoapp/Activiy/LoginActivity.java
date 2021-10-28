@@ -69,6 +69,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //todo load data from shared preference
         loadDefaultUserInfo();
+
+        //todo Auto login button perform when remember_me is checked
+        if(chkRememberMe.isChecked())
+        {
+           btnLogin.performClick();
+        }
     }
 
     private void loadDefaultUserInfo() {
@@ -110,6 +116,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     utility.message("Setup connection required!");
                     return;
                 }
+
                 userID = tvUserId.getText().toString();
                 password = utility.md5(tvPassword.getText().toString());
                 getUserInfo(userID, password);

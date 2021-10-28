@@ -18,7 +18,7 @@ import com.example.e_fordoapp.Utility.Utility;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnBack,btnCheck,btnSave;
+    private Button btnBack,btnSave;
     private TextView tvBaseIP;
     Utility utility;
 
@@ -29,13 +29,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         utility = new Utility(this);
 
         btnBack = findViewById(R.id.btnBack);
-        btnCheck = findViewById(R.id.btnCheck);
+        //btnCheck = findViewById(R.id.btnCheck);
         btnSave = findViewById(R.id.btnSave);
         tvBaseIP=findViewById(R.id.tvBaseIP);
 
         //todo ************ OnclickListener ***********
         btnBack.setOnClickListener(this);
-        btnCheck.setOnClickListener(this);
+       // btnCheck.setOnClickListener(this);
         btnSave.setOnClickListener(this);
 
         //todo load data from shared preference
@@ -59,11 +59,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             super.onBackPressed();
             //startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
         }
-        if(view==btnCheck)
-        {
-            utility.message("Under construction");
-            //startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
-        }
+//        if(view==btnCheck)
+//        {
+//            utility.message("Under construction");
+//            //startActivity(new Intent(SettingsActivity.this, DashboardActivity.class));
+//        }
         if(view==btnSave)
         {
             if(tvBaseIP.getText().length()<7)
