@@ -215,7 +215,7 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void loadCustomerAutoCompleteList(){
-            ArrayAdapter<CustomerAutoComplete> adapter = new ArrayAdapter<CustomerAutoComplete>(CustomerActivity.this, android.R.layout.simple_dropdown_item_1line, Utility.allCustomerList);
+            ArrayAdapter<CustomerAutoComplete> adapter = new ArrayAdapter<CustomerAutoComplete>(CustomerActivity.this, android.R.layout.simple_spinner_dropdown_item, Utility.allCustomerList);  // simple_dropdown_item_1line
             //autoCompleteTextView.setThreshold(4);
             autoCompleteTextView.setAdapter(adapter);
     }
