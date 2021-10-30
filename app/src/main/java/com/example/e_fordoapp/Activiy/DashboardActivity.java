@@ -18,6 +18,7 @@ import com.example.e_fordoapp.ApiConfig.ApiConfig;
 import com.example.e_fordoapp.Model.Customer;
 import com.example.e_fordoapp.Model.CustomerAutoComplete;
 import com.example.e_fordoapp.Model.Product;
+import com.example.e_fordoapp.Model.UserInfo;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Service.CustomerService;
 import com.example.e_fordoapp.Utility.Utility;
@@ -36,8 +37,9 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
 
     private CardView cardVieNewReq ,cardViePreviousReq,cardVieSettings,cardVieLogout;
     private ImageButton imgBtnReview;
-    private TextView tvUserId,tvLoginTime,tvReviewPushNotification;
+    private TextView tvUserId,tvLoginTime,tvReviewPushNotification,tvCartAmount,tvCompany;
     private CustomerService customerService;
+    public static boolean customerListIsLoaded=false;
     List<Product> basketList= new ArrayList<>();
     Utility utility;
 
@@ -50,6 +52,8 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         tvUserId=findViewById(R.id.tvUserId);
         tvLoginTime=findViewById(R.id.tvLoginTime);
         tvReviewPushNotification=findViewById(R.id.tvReviewPushNotification);
+        tvCartAmount=findViewById(R.id.tvCartAmount);
+        tvCompany=findViewById(R.id.tvCompany);
         imgBtnReview=findViewById(R.id.imgBtnReview);
         cardVieNewReq =findViewById(R.id.cardVieNewReq);
         cardViePreviousReq =findViewById(R.id.cardViePreviousReq);
@@ -64,19 +68,29 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
         cardVieSettings.setOnClickListener(this);
         cardVieLogout.setOnClickListener(this);
 
-        // todo show user id & login time
-        basketList=utility.getBusketProduct();
-        tvUserId.setText("Login By : " + utility.getUserID());
+        // todo clear control
+        tvCartAmount.setText("৳ 0");
+        tvReviewPushNotification.setText("0");
+        tvCompany.setText("Company: ");
+
+        // todo show user id , login time & other information
         String currentTime = new SimpleDateFormat("hh:mm a", Locale.getDefault()).format(new Date());
         tvLoginTime.setText("Login Time: "+currentTime);
+        tvUserId.setText("Login By : " + utility.getUserID());
+        tvCompany.setText("Company: "+ utility.getCompanyName());
 
+        // todo load cart information
+        basketList=utility.getBusketProduct();
         if (basketList.size()==0)
             tvReviewPushNotification.setText("0");
-        else
+        else {
             tvReviewPushNotification.setText(String.valueOf(basketList.size()));
+            tvCartAmount.setText("৳ " +String.valueOf(utility.getBusketAmount()));
+        }
 
         // todo all customer list
-        loadCustomerList(utility.getUserID(),utility.getPassword());
+        if(customerListIsLoaded==false)
+            loadCustomerList(utility.getUserID(),utility.getPassword());
     }
 
     @Override
@@ -91,6 +105,9 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
             startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
         }
         else if (view == cardVieLogout ) {
+            customerListIsLoaded=false;
+            UserInfo emptyUserInfo= new UserInfo();
+            utility.setUserInfo(emptyUserInfo);
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
@@ -114,6 +131,7 @@ public class DashboardActivity extends AppCompatActivity  implements View.OnClic
                     return;
                 }
                 Utility.allCustomerList = new ArrayList<>(response.body());
+                customerListIsLoaded=true;
             }
 
             @Override

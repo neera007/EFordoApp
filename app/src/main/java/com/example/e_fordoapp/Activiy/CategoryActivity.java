@@ -8,10 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_fordoapp.Adapter.ProductCategoryAdapter;
 import com.example.e_fordoapp.ApiConfig.ApiConfig;
+import com.example.e_fordoapp.Model.Product;
 import com.example.e_fordoapp.Model.ProductCategory;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Service.ProductCategoryService;
@@ -26,12 +29,12 @@ import retrofit2.Response;
 
 public class CategoryActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView recycleView;
+    private TextView tvReviewPushNotification,tvCartAmount;
+    private ImageButton imgBtnReview;
     Button btnBack;
-    String strnCategoryID="";
-    String strnCategoryName="";
+    String strnCategoryID="",strnCategoryName="";
     List<ProductCategory> productCategoryItemList= new ArrayList<>();
     private ProductCategoryService productCategoryService;
-    String categoryCode;
     Utility utility;
 
     @Override
@@ -39,11 +42,31 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         utility = new Utility(this);
+
         recycleView = findViewById(R.id.recycleView);
         btnBack = findViewById(R.id.btnBack);
+        tvReviewPushNotification=findViewById(R.id.tvReviewPushNotification);
+        tvCartAmount=findViewById(R.id.tvCartAmount);
+        imgBtnReview=findViewById(R.id.imgBtnReview);
 
-
+        //todo ************ OnclickListener ***********
         btnBack.setOnClickListener(this);
+        imgBtnReview.setOnClickListener(this);
+
+        // todo clear control
+        tvCartAmount.setText("৳ 0");
+        tvReviewPushNotification.setText("0");
+
+        // todo load cart information
+        List<Product> basketList= new ArrayList<>();
+        basketList=utility.getBusketProduct();
+        if (basketList.size()==0)
+            tvReviewPushNotification.setText("0");
+        else {
+            tvReviewPushNotification.setText(String.valueOf(basketList.size()));
+            tvCartAmount.setText("৳ " +String.valueOf(utility.getBusketAmount()));
+        }
+
         // todo load product list
         loadProductList(utility.getUserID(),utility.getPassword());
     }
@@ -61,6 +84,9 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         if(view==btnBack)
         {
             startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
+        }
+        else if (view == imgBtnReview ) {
+            startActivity(new Intent(getApplicationContext(),BasketActivity.class));
         }
     }
 

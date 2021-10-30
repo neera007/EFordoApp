@@ -53,11 +53,17 @@ public class ProductInfoAdapter extends RecyclerView.Adapter<ProductInfoAdapter.
 
         holder.tvItemQty.setText(String.valueOf(productItem.getItemQty()));
 
+        /*if (productItem.getItemCode().equals("100007"))
+        {
+            String imname=productItem.getItemImageName();
+        }*/
         if (productItem.getItemImageName().isEmpty()==false) {
             String ImageURL = ApiConfig.getApiClient().baseUrl()+"/images/" + productItem.getItemImageName();
             Picasso.get().load(ImageURL).into(holder.imageView);
             Picasso.get().load(ImageURL).resize(60, 60);
         }
+        else
+            holder.imageView.setImageResource(R.drawable.image_na);
 
         // Todo define minus button function---------------------
         holder.btnMinus.setOnClickListener(new View.OnClickListener() {

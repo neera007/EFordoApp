@@ -22,7 +22,7 @@ tools:context=".Activiy.SplashScreenActivity">
         android:layout_centerHorizontal="true"
         android:id="@+id/btnBasket"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
         <ImageButton
             android:id="@+id/img_logo"
             android:layout_alignBottom="@+id/btnBasket"
@@ -30,6 +30,13 @@ tools:context=".Activiy.SplashScreenActivity">
             android:layout_height="100dp"
             android:background="@drawable/logo"
            />
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Verion:1.1"
+            android:gravity="center"
+            />
     </LinearLayout>
 </LinearLayout>
 

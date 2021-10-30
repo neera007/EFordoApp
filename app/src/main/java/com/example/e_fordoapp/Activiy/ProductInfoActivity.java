@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,8 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
     private TextView tvTotalQty,tvCategoryName;
     private RecyclerView recycleView;
     private ProductService productService;
+    private TextView tvReviewPushNotification,tvCartAmount;
+    private ImageButton imgBtnReview;
     Button btnNext,btnBack;
     String strnCategoryID="";
     String strnCategoryName="";
@@ -44,26 +47,49 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_info);
         utility = new Utility(this);
-        //todo*** get and set values from audit activity
-        Intent intent = getIntent();
-        strnCategoryID = intent.getStringExtra("categoryID");
-        strnCategoryName = intent.getStringExtra("categoryName");
-
-
 
         recycleView = findViewById(R.id.recycleView);
         btnNext = findViewById(R.id.btnNext);
         btnBack = findViewById(R.id.btnBack);
         tvCategoryName = findViewById(R.id.tvCategoryName);
+        tvReviewPushNotification=findViewById(R.id.tvReviewPushNotification);
+        tvCartAmount=findViewById(R.id.tvCartAmount);
+        imgBtnReview=findViewById(R.id.imgBtnReview);
+
+        //todo ************ OnclickListener ***********
+        btnNext.setOnClickListener((View.OnClickListener) this);
+        btnBack.setOnClickListener((View.OnClickListener) this);
+        imgBtnReview.setOnClickListener(this);
+
+        //todo*** get and set values
+        Intent intent = getIntent();
+        strnCategoryID = intent.getStringExtra("categoryID");
+        strnCategoryName = intent.getStringExtra("categoryName");
 
         tvCategoryName.setText("Caterory : "+ strnCategoryName); //todo set Cat name in next activity
 
+        // todo clear control
+        tvCartAmount.setText("৳ 0");
+        tvReviewPushNotification.setText("0");
+
+        // todo load cart information
+        loadCartSummary();
 
         loadProductList(utility.getUserID(),utility.getPassword(),strnCategoryID);
 
+    }
 
-        btnNext.setOnClickListener((View.OnClickListener) this);
-        btnBack.setOnClickListener((View.OnClickListener) this);
+    private void loadCartSummary() {
+        List<Product> basketList= new ArrayList<>();
+        basketList=utility.getBusketProduct();
+        if (basketList.size()==0) {
+            tvReviewPushNotification.setText("0");
+            tvCartAmount.setText("৳ 0");
+        }
+        else {
+            tvReviewPushNotification.setText(String.valueOf(basketList.size()));
+            tvCartAmount.setText("৳ " +String.valueOf(utility.getBusketAmount()));
+        }
     }
 
     @Override
@@ -73,6 +99,9 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
         }
         else if(view == btnBack) {
             startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
+        }
+        else if (view == imgBtnReview ) {
+            startActivity(new Intent(getApplicationContext(),BasketActivity.class));
         }
     }
 
@@ -106,6 +135,7 @@ public class ProductInfoActivity extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onRecycleViewItemClick(int position) {
                         //tvOrderAmount.setText("৳: "+String.valueOf(utility.getBusketAmount()));
+                        loadCartSummary();
                     }
                 });
             }

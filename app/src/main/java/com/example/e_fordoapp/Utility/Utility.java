@@ -121,6 +121,17 @@ public class Utility {
         return userInfo.getPassword();
     }
 
+    public String getCompanyName()
+    {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("userInfo", null);
+        if (json == null)
+            return "";
+        Type type = new TypeToken<UserInfo>(){}.getType();
+        UserInfo userInfo=gson.fromJson(json, type);
+        return userInfo.getCompanyName();
+    }
+
     public String setSpace(int ch)
     {
         String sp = "";

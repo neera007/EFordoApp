@@ -64,6 +64,9 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.MyViewHold
             Picasso.get().load(ImageURL).into(holder.imageView);
             Picasso.get().load(ImageURL).resize(60, 60);
         }
+        else
+            holder.imageView.setImageResource(R.drawable.image_na);
+
 
         if (isOnlyView==false){
                 holder.layoutButton.setVisibility(View.GONE);

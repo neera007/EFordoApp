@@ -4,6 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class UserInfo {
+    @SerializedName("CompanyName")
+    @Expose
+    private String companyName;
     @SerializedName("UserID")
     @Expose
     private String userID;
@@ -34,6 +37,13 @@ public class UserInfo {
     @SerializedName("RememberMe")
     @Expose
     private Boolean rememberMe;
+
+    public String getCompanyName() {
+        return companyName;
+    }
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
 
     public String getUserID() {
         return userID;

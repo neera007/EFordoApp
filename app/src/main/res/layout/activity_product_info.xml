@@ -54,17 +54,54 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/tvScreenName"
         app:layout_constraintTop_toBottomOf="@+id/tvScreenName" />
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/imgBtnReview"
-        android:layout_width="35dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/add_to_cart"
-        app:layout_constraintTop_toTopOf="parent"
+
+    <LinearLayout
+        android:id="@+id/layoutNofication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/imgBtnReview"
+                android:layout_width="35dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="-5dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:background="@drawable/add_to_cart"
+                />
+
+            <TextView
+                android:id="@+id/tvReviewPushNotification"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/badge_background"
+                android:gravity="center"
+                android:text="10"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvCartAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="৳ 15000"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView

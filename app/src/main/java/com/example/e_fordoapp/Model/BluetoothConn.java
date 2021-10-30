@@ -1,4 +1,5 @@
 package com.example.e_fordoapp.Model;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +8,6 @@ public class BluetoothConn {
     @Expose
     private String logicalName;
 
-
     @SerializedName("address")
     @Expose
     private String address;
@@ -15,11 +15,9 @@ public class BluetoothConn {
     public void setLogicalName(String logicalName) {
         this.logicalName = logicalName;
     }
-
     public String getLogicalName() {
         return logicalName;
     }
-
 
     public String getAddress() {
         return address;

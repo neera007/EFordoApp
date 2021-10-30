@@ -33,7 +33,7 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
     Utility utility;
     private TextView tvSummaryTitle,tvOrderAmount;
     private RecyclerView recycleView;
-    private Button btnGoToHome,btnPrintInvoice,btnMakeConnection;
+    private Button btnGoToHome;//,btnPrintInvoice,btnMakeConnection;
     List<Product> busketItemList = new ArrayList<>();
     String orderNumber;
 
@@ -41,10 +41,10 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
 //    private String logicalName = "";   //74:F0:7D:EF:86:A7
 //    private String address = "";  //SPP-R310
 
-    private String logicalName = "74:F0:7D:EF:86:A7";
+/*    private String logicalName = "74:F0:7D:EF:86:A7";
     private String address = "SPP-R310 ";
 
-    private static BixolonPrinter bxlPrinter = null;
+    private static BixolonPrinter bxlPrinter = null;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,8 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
 
         utility = new Utility(this);
         btnGoToHome = this.findViewById(R.id.btnGoToHome);
-        btnPrintInvoice=this.findViewById(R.id.btnPrintInvoice);
-        btnMakeConnection=this.findViewById(R.id.btnMakeConnection);
+//        btnPrintInvoice=this.findViewById(R.id.btnPrintInvoice);
+//        btnMakeConnection=this.findViewById(R.id.btnMakeConnection);
 
         //todo textview
         tvSummaryTitle = findViewById(R.id.tvSummaryTitle);
@@ -65,14 +65,14 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
         recycleView.setLayoutManager(layoutManager);
 
         btnGoToHome.setOnClickListener(this);
-        btnPrintInvoice.setOnClickListener(this);
-        btnMakeConnection.setOnClickListener(this);
+//        btnPrintInvoice.setOnClickListener(this);
+//        btnMakeConnection.setOnClickListener(this);
         loadBasketData();
-        bxlPrinter = new BixolonPrinter(getApplicationContext());
+        //bxlPrinter = new BixolonPrinter(getApplicationContext());
         //todo get utility shared value ----------------------------
-        BluetoothConn bluetoothConn =utility.getBluetoothConn();
+        /*BluetoothConn bluetoothConn =utility.getBluetoothConn();
         logicalName =  bluetoothConn.getLogicalName();
-        address =   bluetoothConn.getAddress();
+        address =   bluetoothConn.getAddress();*/
     }
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -87,7 +87,7 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
             startActivity(intent);
             finish();
         }
-        if(view == btnMakeConnection) {
+        /*if(view == btnMakeConnection) {
             //todo
             if (getPrinterInstance().printerOpen(0, logicalName, address, true)) {
                utility.message("Connected Successfully");
@@ -109,16 +109,16 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
             {
                 Toast.makeText(getApplicationContext(), "Make connection first!", Toast.LENGTH_LONG).show();
             }
-        }
+        }*/
 
     }
 
 
-    public static BixolonPrinter getPrinterInstance()
+    /*public static BixolonPrinter getPrinterInstance()
     {
         return bxlPrinter;
     }
-
+*/
     private void loadBasketData() {
         //todo get & set invoice number
         Bundle extras = getIntent().getExtras();
@@ -149,7 +149,7 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
         utility.clearCustomer();
     }
 
-    public void memoPrint() {
+    /*public void memoPrint() {
         getPrinterInstance().beginTransactionPrint();
 
         String memo_data="                    -- e-Fordo --                    \n" +
@@ -170,5 +170,5 @@ public class OrderCheckoutActivity extends AppCompatActivity implements View.OnC
                 "            Copyright Proxima Soft        \n\n\n";
         getPrinterInstance().printText(memo_data, BixolonPrinter.ALIGNMENT_LEFT, 0, 0);
         getPrinterInstance().endTransactionPrint();
-    }
+    }*/
 }

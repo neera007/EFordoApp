@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,9 @@ import retrofit2.Response;
 
 public class CustomerActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnBack,btnReset,btnNext,btnUserSearchByPIN;
-    private EditText editTvUserSearchByPIN,editTvUserPIN,editTvUserName,editTvUserInfo;
+    private EditText editTvUserPIN,editTvUserName,editTvUserInfo;
+    private TextView tvReviewPushNotification,tvCartAmount;
+    private ImageButton imgBtnReview;
     private AutoCompleteTextView autoCompleteTextView;
     private CustomerService customerService;
     Utility utility;
@@ -54,8 +57,10 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         btnReset = findViewById(R.id.btnReset);
         btnNext = findViewById(R.id.btnNext);
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        tvReviewPushNotification=findViewById(R.id.tvReviewPushNotification);
+        tvCartAmount=findViewById(R.id.tvCartAmount);
+        imgBtnReview=findViewById(R.id.imgBtnReview);
 
-//        editTvUserSearchByPIN = findViewById(R.id.editTvUserSearchByPIN);
         editTvUserPIN = findViewById(R.id.editTvUserPIN);
         editTvUserName = findViewById(R.id.editTvUserName);
         editTvUserInfo = findViewById(R.id.editTvUserInfo); //textarea
@@ -70,8 +75,22 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
         btnBack.setOnClickListener(this);
         btnReset.setOnClickListener(this);
         btnNext.setOnClickListener(this);
+        imgBtnReview.setOnClickListener(this);
 
-        //editTvUserSearchByPIN.setText("STD900000");
+        // todo clear control
+        tvCartAmount.setText("৳ 0");
+        tvReviewPushNotification.setText("0");
+
+        // todo load cart information
+        List<Product> basketList= new ArrayList<>();
+        basketList=utility.getBusketProduct();
+        if (basketList.size()==0)
+            tvReviewPushNotification.setText("0");
+        else {
+            tvReviewPushNotification.setText(String.valueOf(basketList.size()));
+            tvCartAmount.setText("৳ " +String.valueOf(utility.getBusketAmount()));
+        }
+
         editTvUserPIN.requestFocus();
         loadCustomerAutoCompleteList();
     }
@@ -97,11 +116,11 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             }
 
             Customer customer=utility.getCustomer();
-//            if (Integer.valueOf(customer.getLimit())<1)
-//            {
-//                utility.message("Credit limit is over");
-//                return;
-//            }
+            if (Integer.valueOf(customer.getLimit())<1)
+            {
+                utility.message("Credit limit is over");
+                return;
+            }
 
             if (Integer.valueOf(customer.getInvCount())<1)
             {
@@ -143,6 +162,9 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
             }
             loadCustomerInfo(autoCompleteTextView.getText().toString());
         }
+        else if (view == imgBtnReview ) {
+            startActivity(new Intent(getApplicationContext(),BasketActivity.class));
+        }
     }
 
     private void loadCustomerInfo(final String accountNumber) {
@@ -170,12 +192,17 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
                     }*/
                     invoiceLimit="Invoice Limit :"+customer.getInvCount();
                     editTvUserPIN.setText(customer.getAccountNumber());
-                    editTvUserName.setText(customer.getAccountName());
+                    editTvUserName.setText(customer.getAccountNumber()+"-"+customer.getAccountName());
                     editTvUserInfo.setText("Credit Limit: "+customer.getLimit()+"\n"
                                             +invoiceLimit+"\n"
+                                            +"Division: "+customer.getDivision()+"\n"
+                                            +"Department: "+customer.getDepartment()+"\n"
+                                            +"Sub Department: "+customer.getSubDepartment()+"\n"
+                                            +"Designation: "+customer.getDesignation()+"\n"
                                             +customer.getDescription());
                     utility.setCustomer(customer);
                     utility.hideKeyboard(CustomerActivity.this);
+                    autoCompleteTextView.setText("");
                 }
             }
 

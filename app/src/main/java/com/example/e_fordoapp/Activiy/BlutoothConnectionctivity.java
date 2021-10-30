@@ -34,7 +34,7 @@ import com.bxl.config.util.BXLBluetoothLE;
 import com.bxl.config.util.BXLNetwork;
 import com.example.e_fordoapp.Model.BluetoothConn;
 import com.example.e_fordoapp.Model.Customer;
-import com.example.e_fordoapp.PrinterControl.BixolonPrinter;
+//import com.example.e_fordoapp.PrinterControl.BixolonPrinter;
 import com.example.e_fordoapp.R;
 import com.example.e_fordoapp.Utility.Utility;
 
@@ -59,14 +59,14 @@ public class BlutoothConnectionctivity extends AppCompatActivity implements Adap
     private String address = "";
     private ListView listView;
     private Button btnMakeConnection,btnBack;
-    private static BixolonPrinter bxlPrinter = null;
+    //private static BixolonPrinter bxlPrinter = null;
    // BluetoothConn bluetoothConn =new BluetoothConn();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blutooth_connectionctivity);
         utility = new Utility(this);
-        btnMakeConnection = findViewById(R.id.btnMakeConnection);
+        //btnMakeConnection = findViewById(R.id.btnMakeConnection);
         btnBack = findViewById(R.id.btnBack);
         btnMakeConnection.setOnClickListener(this);
         btnBack.setOnClickListener(this);
